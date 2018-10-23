@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Group 7</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
+
+  <header>
+    <ul id="homebar">
+      <li><a href="#"> HOME </a></li>
+      <li><a href="#"> GROUPS </a></li>
+      <li><a href="#"> SOLOS </a></li>
+      <li class="right"><a href="#"> MY PROFILE </a></li>
+      <li class="right"><a href="#"> LOGIN </a></li>
+    </ul>
+  </header>
+
+  <body>
+
+    <div id="user-acount-page-wrapper">
+      <table style="width:70%; margin: auto;">
+        <tr>
+          <th style="float: right;">
+
+            <!-- profile photo, on click bring up file browser to pick new image, save to database -->
+            <div id="image-wrapper">
+              <img src="default_user_photo.jpg" alt="User Photo" style="height: 170px; width: 170px;">
+            </div>
+
+            <!-- link to resume, on click, open in new tab -->
+            <a href="default_user_resume.pdf" target="_blank">Resume</a>
+            
+            <!-- list of links to all groups user is part of, pull from database -->
+            <ul id="all-groups" style="list-style-type: none;">
+              ALL GROUPS
+              <li>Group 1</li>
+              <li>Group 2</li>
+              <li>Group 3</li>
+            </ul>
+
+          </th>
+          <th>
+            <div id="user-data-form-wrapper" style="float: left;">
+
+              <!-- form for user data, should pull current values from database to fill fields -->
+              <form>
+                First name:<input type="text" name="firstname"><br>
+                Last name:<input type="text" name="lastname"><br>
+                Skills:<input type="text" name="lastname"><br>
+                Biography:<input type="text" name="lastname">
+              </form>
+              
+              <!-- button to save current form data to database -->
+              <button type="button" onclick="alert('Current Data Saved!')">Save</button>
+            </div>
+
+
+          </th> 
+        </tr>
+      </table>
+    </div>
+    <footer>© Copyright 2018, RPI | Group 7</footer>
+  </body>
+</html>
