@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Group 7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link type="text/css" rel="stylesheet" href="style.css" />
   </head>
@@ -25,7 +26,13 @@
 
             <!-- profile photo, on click bring up file browser to pick new image, save to database -->
             <div id="image-wrapper">
-              <img src="default_user_photo.jpg" alt="User Photo" style="height: 170px; width: 170px;">
+              <input type="image" src="default_user_photo.jpg" alt="User Photo" width="170px" height="170px" />
+              <input type="file" id="user_photo" style="display: none;" />
+              <script type="text/javascript">
+                $("input[type='image']").click(function() {
+                  $("input[id='user_photo']").click();
+                });
+              </script>
             </div>
 
             <!-- link to resume, on click, open in new tab -->
@@ -54,7 +61,6 @@
               <!-- button to save current form data to database -->
               <button type="button" onclick="alert('Current Data Saved!')">Save</button>
             </div>
-
 
           </th> 
         </tr>
