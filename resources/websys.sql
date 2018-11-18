@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2018 at 06:28 PM
+-- Generation Time: Nov 19, 2018 at 12:31 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -43,6 +43,8 @@ CREATE TABLE `groups` (
 --
 
 CREATE TABLE `users` (
+  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `UserID` int(10) NOT NULL,
   `FirstName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `LastName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -68,6 +70,7 @@ ALTER TABLE `groups`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`UserID`),
+  ADD UNIQUE KEY `username` (`username`),
   ADD KEY `GroupID` (`GroupID`);
 
 --
