@@ -8,7 +8,6 @@ header {
 /* Menu Bar */
 #homebar{
   margin: 0;
-  padding-top: 10px;
   height: 37px;
   background-color: rgb(112, 133, 194);
   border: 4px solid ;
@@ -16,7 +15,6 @@ header {
 /* Each item in Menu Bar */
 #homebar li {
   display: inline-block;
-  padding-left:1.5%;
   padding-right:1.5%;
   font-variant: small-caps;
   font-family: 'Montserrat', sans-serif;
@@ -48,12 +46,12 @@ header {
 
 footer{
     font-family: 'Days One', sans-serif;
-    font-size: 1em;
-    height: 5%;
+    font-size: 0.8em;
+    height: 3%;
     background-color: rgba(0,0,0,0.1);
-    back
     text-align: center;
     position: fixed;
+    padding: 20;
     left: 0;
     bottom:0;
     width: 100%;
@@ -154,7 +152,7 @@ footer{
   position: absolute;
   border-width: 8px 8px 8px 0;
   border-style: solid solid solid none;
-  border-color: transparent #D88F3C transparent;
+  border-color: transparent #ffb84d transparent;
   top: 12px;
   left: -6px;
 }
@@ -167,10 +165,4 @@ footer{
 .form-wrapper-2 button::-moz-focus-inner {
   border: 0;
   padding: 0;
-}
-
-footer {
-    color: rgb(112, 133, 194);
-    padding-left: 10px;
-    padding-top: 10px;
 }
