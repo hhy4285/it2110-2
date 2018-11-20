@@ -41,12 +41,10 @@ h2 {
   cursor: pointer;
 }
 #homebar li:hover{
-  background-color:#171717;
 }
 #homebar li:hover a{
-  color:#00f6ff;
+  color:#1ece00;
 }
-
 .searchBlocks {
   width: 100%;
   height: 40%;
@@ -56,8 +54,8 @@ h2 {
 footer{
     font-family: 'Days One', sans-serif;
     font-size: 1em;
-    height: 3%;
-    background-color:#171717;
+    height: 4%;
+    background-color: rgba(0,0,0,0.1);
     text-align: center;
     position: fixed;
     left: 0;
@@ -66,40 +64,6 @@ footer{
     color:#79a9f7;
 }
 
-.border {
-  border-style: solid;
-  width: 100%;
-  border-width: 1px;
-}
-
-#profile_block {
-  width: 60%;
-  height: 55%;
-  margin-left: 20%;
-  margin-top: 5%;
-  border-style: solid;
-}
-#joinRequest {
-  font-family: 'Signika', sans-serif;
-  font-size: 1em;
-  background-color: orange;
-  padding: 5px;
-  margin: 5px;
-  border-radius: 5px;
-  box-shadow: 0px 3px 0px #B17300;
-}
-#abstract {
-  width: 80%;
-  padding-left: 10%;
-  padding-bottom: 3%;
-}
-#group_members {
-  width: 33%;
-}
-#groupName {
-  width: 81%;
-  display: inline-block;
-}
 
 
 .button_box {
@@ -117,14 +81,12 @@ footer{
 .cf{
   zoom:1;
 }
-
 /*-------------------------------------*/
 
 .form-wrapper-2 {
   width: 330px;
   padding: 7px;
 
-  background: #f44295;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -175,10 +137,10 @@ footer{
   cursor: pointer;
   height: 40px;
   width: 70px;
-  font: bold 15px/40px 'Raleway', sans-serif;
+  font: bold 14px/30px 'Raleway', sans-serif;
   color: #fff;
   text-transform: uppercase;
-  background: #D88F3C;
+  background: #ffb84d;
   -moz-border-radius: 0 3px 3px 0;
   -webkit-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
@@ -196,7 +158,7 @@ footer{
   position: absolute;
   border-width: 8px 8px 8px 0;
   border-style: solid solid solid none;
-  border-color: transparent #D88F3C transparent;
+  border-color: transparent #ffb84d transparent;
   top: 12px;
   left: -6px;
 }

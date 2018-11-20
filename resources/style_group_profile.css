@@ -1,0 +1,41 @@
+.border {
+  border-style: solid;
+  width: 100%;
+  border-width: 1px;
+}
+
+#profile_block {
+  width: 60%;
+  height: 55%;
+  margin-left: 20%;
+  margin-top: 5%;
+  border-style: solid;
+}
+#joinRequest {
+  float: right;
+  font-family: 'Signika', sans-serif;
+  font-size: 1em;
+  background-color: orange;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 0px #B17300;
+}
+#abstract {
+  width: 80%;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+#group_members {
+  display: inline-block;
+  width: 33%;
+}
+#groupName {
+  width: 100%;
+  display: inline-block;
+}
+#projectProgress {
+  display: inline-block;
+  width: 60%;
+}
