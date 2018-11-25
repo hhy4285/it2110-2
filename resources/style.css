@@ -1,9 +1,6 @@
 body {
   margin: 0;
 }
-
-header {
-}
 h1 {
   text-align: center;
   padding: 0;
@@ -17,7 +14,7 @@ h2 {
 /* Menu Bar */
 #homebar{
   margin: 0;
-  height: 37px;
+  height: 3%;
   background-color:#ffc919;
 }
 /* Each item in Menu Bar */
@@ -57,9 +54,9 @@ footer{
     height: 4%;
     background-color: rgba(0,0,0,0.1);
     text-align: center;
-    position: relative;
+    margin-top: 7%;
     left: 0;
-    bottom:0;
+    bottom: 0;
     width: 100%;
     color:#79a9f7;
 }
