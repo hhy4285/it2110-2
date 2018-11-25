@@ -1,9 +1,16 @@
+ul {
+}
+h2 {
+}
+
 .border {
   border-style: solid;
   width: 100%;
   border-width: 1px;
 }
-
+.blocks {
+  padding-left: 10%;
+}
 #profile_block {
   width: 60%;
   height: 55%;
@@ -23,19 +30,19 @@
 }
 #abstract {
   width: 80%;
-  padding-left: 10%;
   padding-top: 5%;
   padding-bottom: 3%;
 }
 #group_members {
-  display: inline-block;
-  width: 33%;
+}
+#group_members ul {
 }
 #groupName {
+
   width: 100%;
   display: inline-block;
 }
 #projectProgress {
-  display: inline-block;
+  
   width: 60%;
 }
