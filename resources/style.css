@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  margin:0;
+  padding:0;
 }
 h1 {
   text-align: center;
@@ -17,22 +18,32 @@ h2 {
   height: 3%;
   background-color:#ffc919;
 }
-/* Each item in Menu Bar */
 #homebar li {
   display: inline-block;
-  padding-left:1.5%;
-  padding-right:1.5%;
+  margin-left:1.5%;
+  margin-right:1.5%;
   font-variant: small-caps;
 }
 .right {
   float: right;
+  width: 25%;
+}
+.right li {
+  width: 45%;
+  float: right;
+  display: inline;
+  text-align: center;
+}
+#logout {
+}
+#login_username {
 }
 #homebar a {
   text-decoration: none;
   color:black;
   font-size: 1.41em;
 }
-/* Animation when an item is hovered over */
+
 #homebar a:hover {
   font-weight: bold;
   cursor: pointer;
@@ -45,23 +56,20 @@ h2 {
 .searchBlocks {
   width: 100%;
   height: 40%;
-
 }
-
-footer{
-    font-family: 'Days One', sans-serif;
-    font-size: 1em;
-    height: 4%;
-    background-color: rgba(0,0,0,0.1);
-    text-align: center;
-    margin-top: 7%;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color:#79a9f7;
+#footer {
+  background-color: rgba(0,0,0,0.1);
+  font-family: 'Days One', sans-serif;
+  font-size: 1em;
+  text-align: center;
+  color:#79a9f7;
+  left: 0;
+  bottom: 0;
+  height: 3%;
+  position: absolute;
+  width: 100%;
+  margin-top: 10%;
 }
-
-
 
 .button_box {
   margin: 2% auto;
