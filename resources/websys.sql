@@ -2,8 +2,8 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 19, 2018 at 01:49 AM
+-- Host: localhost
+-- Generation Time: Nov 27, 2018 at 06:04 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -31,17 +31,29 @@ SET time_zone = "+00:00";
 CREATE TABLE `groups` (
   `GroupID` int(10) NOT NULL,
   `GroupName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `OwnerID` int(10) NOT NULL,
+  `FounderID` int(10) NOT NULL,
   `Description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Skills` varchar(200) COLLATE utf8_unicode_ci NOT NULL
+  `ContactEmail` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `groups`
 --
 
-INSERT INTO `groups` (`GroupID`, `GroupName`, `OwnerID`, `Description`, `Skills`) VALUES
+INSERT INTO `groups` (`GroupID`, `GroupName`, `FounderID`, `Description`, `ContactEmail`) VALUES
 (1, 'testgroup', 1, 'doing nothing', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_individual_relations`
+--
+
+CREATE TABLE `group_individual_relations` (
+  `relationID` int(10) NOT NULL,
+  `userID` int(10) NOT NULL,
+  `groupID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -77,7 +89,14 @@ INSERT INTO `users` (`username`, `password`, `UserID`, `FirstName`, `LastName`, 
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`GroupID`),
-  ADD KEY `OwnerID` (`OwnerID`);
+  ADD KEY `OwnerID` (`FounderID`);
+
+--
+-- Indexes for table `group_individual_relations`
+--
+ALTER TABLE `group_individual_relations`
+  ADD PRIMARY KEY (`relationID`),
+  ADD KEY `user` (`userID`);
 
 --
 -- Indexes for table `users`
@@ -98,6 +117,12 @@ ALTER TABLE `groups`
   MODIFY `GroupID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `group_individual_relations`
+--
+ALTER TABLE `group_individual_relations`
+  MODIFY `relationID` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -111,7 +136,13 @@ ALTER TABLE `users`
 -- Constraints for table `groups`
 --
 ALTER TABLE `groups`
-  ADD CONSTRAINT `owner` FOREIGN KEY (`OwnerID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `owner` FOREIGN KEY (`FounderID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `group_individual_relations`
+--
+ALTER TABLE `group_individual_relations`
+  ADD CONSTRAINT `user` FOREIGN KEY (`userID`) REFERENCES `users` (`UserID`);
 
 --
 -- Constraints for table `users`

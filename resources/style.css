@@ -17,6 +17,7 @@ h2 {
   margin: 0;
   height: 3%;
   background-color:#ffc919;
+  font-family: 'Bowlby One SC', cursive;
 }
 #homebar li {
   display: inline-block;
@@ -33,10 +34,6 @@ h2 {
   float: right;
   display: inline;
   text-align: center;
-}
-#logout {
-}
-#login_username {
 }
 #homebar a {
   text-decoration: none;
@@ -59,14 +56,14 @@ h2 {
 }
 #footer {
   background-color: rgba(0,0,0,0.1);
-  font-family: 'Days One', sans-serif;
+  font-family: "Courier New", Courier, monospace;
   font-size: 1em;
   text-align: center;
   color:#79a9f7;
   left: 0;
   bottom: 0;
   height: 3%;
-  position: absolute;
+  position: relative;
   width: 100%;
   margin-top: 10%;
 }
