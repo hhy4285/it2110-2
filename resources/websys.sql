@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 27, 2018 at 06:04 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost:3306
+-- Generation Time: Nov 27, 2018 at 12:32 PM
+-- Server version: 5.7.24-0ubuntu0.18.04.1
+-- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -96,7 +96,8 @@ ALTER TABLE `groups`
 --
 ALTER TABLE `group_individual_relations`
   ADD PRIMARY KEY (`relationID`),
-  ADD KEY `user` (`userID`);
+  ADD KEY `user` (`userID`),
+  ADD KEY `group_individual` (`groupID`);
 
 --
 -- Indexes for table `users`
@@ -142,7 +143,8 @@ ALTER TABLE `groups`
 -- Constraints for table `group_individual_relations`
 --
 ALTER TABLE `group_individual_relations`
-  ADD CONSTRAINT `user` FOREIGN KEY (`userID`) REFERENCES `users` (`UserID`);
+  ADD CONSTRAINT `group_individual` FOREIGN KEY (`groupID`) REFERENCES `groups` (`GroupID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user` FOREIGN KEY (`userID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `users`
