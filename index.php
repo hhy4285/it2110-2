@@ -9,7 +9,7 @@
   </head>
 
   <header>
-  	<ul id="homebar">
+    <ul id="homebar">
       <li><a href="index.php"> HOME </a></li>
       <div class="right">
         <li><a href="user_profile.html"> LOG OUT </a></li>
@@ -17,22 +17,28 @@
       </div>
     </ul>
   </header>
+
   <body>
-    <div class="button_box">
-      <form class="form-wrapper-2 cf">
-        <input type="text" placeholder="Search Groups..." required>
-        <button type="submit">Search</button>
-      </form>
+    <div id="container">
+
+      <div class="button_box">
+        <form class="form-wrapper-2 cf">
+          <input type="text" placeholder="Search Groups..." required>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+
+      <div class="button_box">
+        <form class="form-wrapper-2 cf">
+          <input type="text" placeholder="Search Solos..." required>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+
+    
+
+    <?php include('resources/footer.php'); ?>
     </div>
 
-    <div class="button_box">
-      <form class="form-wrapper-2 cf">
-        <input type="text" placeholder="Search Solos..." required>
-        <button type="submit">Search</button>
-      </form>
-    </div>
-    <?php
-      include('resources/footer.php');
-    ?>
   </body>
 </html>

@@ -11,7 +11,7 @@
   </head>
 
   <header>
-  	<ul id="homebar">
+    <ul id="homebar">
       <li><a href="index.php"> HOME </a></li>
       <div class="right">
         <li><a href="user_profile.html"> LOG OUT </a></li>
@@ -19,7 +19,7 @@
       </div>
     </ul>
   </header>
-
+  
   <body>
     <div id="profile_block">
       <h1 id="groupName">Group 7</h1>
@@ -63,8 +63,6 @@
       </div>
 
     </div>
-    <?php
-      include('resources/footer.php');
-    ?>
+    <?php include('resources/footer.php'); ?>
   </body>
 </html>

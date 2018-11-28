@@ -1,5 +1,5 @@
 <?php
-	echo "<div id ="footer-container" style="position: relative;">
-      		<div id="footer">© Copyright 2018, RPI | Group 7</div>
-    	</div> ";
+	echo '<div id ="footer-container">
+      		<footer>© Copyright 2018, RPI | Group 7</footer>
+    	</div> ';
 ?>
