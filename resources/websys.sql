@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 19, 2018 at 12:31 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost:3306
+-- Generation Time: Nov 27, 2018 at 12:32 PM
+-- Server version: 5.7.24-0ubuntu0.18.04.1
+-- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,9 +31,28 @@ SET time_zone = "+00:00";
 CREATE TABLE `groups` (
   `GroupID` int(10) NOT NULL,
   `GroupName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `OwnerID` int(10) NOT NULL,
+  `FounderID` int(10) NOT NULL,
   `Description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Skills` varchar(200) COLLATE utf8_unicode_ci NOT NULL
+  `ContactEmail` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `groups`
+--
+
+INSERT INTO `groups` (`GroupID`, `GroupName`, `FounderID`, `Description`, `ContactEmail`) VALUES
+(1, 'testgroup', 1, 'doing nothing', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_individual_relations`
+--
+
+CREATE TABLE `group_individual_relations` (
+  `relationID` int(10) NOT NULL,
+  `userID` int(10) NOT NULL,
+  `groupID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -50,9 +69,16 @@ CREATE TABLE `users` (
   `LastName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `RIN` int(10) NOT NULL,
   `Email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `GroupID` int(10) NOT NULL,
+  `GroupID` int(10) DEFAULT NULL,
   `Skills` varchar(200) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`username`, `password`, `UserID`, `FirstName`, `LastName`, `RIN`, `Email`, `GroupID`, `Skills`) VALUES
+('bob', 'bob', 1, 'bob', 'ross', 123123123, 'rossb@rpi.edu', 1, '');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +89,15 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`GroupID`),
-  ADD KEY `OwnerID` (`OwnerID`);
+  ADD KEY `OwnerID` (`FounderID`);
+
+--
+-- Indexes for table `group_individual_relations`
+--
+ALTER TABLE `group_individual_relations`
+  ADD PRIMARY KEY (`relationID`),
+  ADD KEY `user` (`userID`),
+  ADD KEY `group_individual` (`groupID`);
 
 --
 -- Indexes for table `users`
@@ -74,6 +108,28 @@ ALTER TABLE `users`
   ADD KEY `GroupID` (`GroupID`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `GroupID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `group_individual_relations`
+--
+ALTER TABLE `group_individual_relations`
+  MODIFY `relationID` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `UserID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -81,13 +137,20 @@ ALTER TABLE `users`
 -- Constraints for table `groups`
 --
 ALTER TABLE `groups`
-  ADD CONSTRAINT `OwnerID` FOREIGN KEY (`OwnerID`) REFERENCES `users` (`UserID`);
+  ADD CONSTRAINT `owner` FOREIGN KEY (`FounderID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `group_individual_relations`
+--
+ALTER TABLE `group_individual_relations`
+  ADD CONSTRAINT `group_individual` FOREIGN KEY (`groupID`) REFERENCES `groups` (`GroupID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user` FOREIGN KEY (`userID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `GroupID` FOREIGN KEY (`UserID`) REFERENCES `groups` (`GroupID`);
+  ADD CONSTRAINT `group` FOREIGN KEY (`GroupID`) REFERENCES `groups` (`GroupID`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

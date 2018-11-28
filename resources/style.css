@@ -1,13 +1,12 @@
 body {
-  margin: 0;
-}
-
-header {
+  margin:0;
+  padding:0;
 }
 h1 {
   text-align: center;
   padding: 0;
   margin: 0;
+  width: 80%;
 }
 h2 {
   margin: 0;
@@ -16,56 +15,58 @@ h2 {
 /* Menu Bar */
 #homebar{
   margin: 0;
-  height: 37px;
+  height: 3%;
   background-color:#ffc919;
+  font-family: 'Bowlby One SC', cursive;
 }
-/* Each item in Menu Bar */
 #homebar li {
   display: inline-block;
-  padding-left:1.5%;
-  padding-right:1.5%;
+  margin-left:1.5%;
+  margin-right:1.5%;
   font-variant: small-caps;
 }
 .right {
   float: right;
+  width: 25%;
+}
+.right li {
+  width: 45%;
+  float: right;
+  display: inline;
+  text-align: center;
 }
 #homebar a {
   text-decoration: none;
   color:black;
   font-size: 1.41em;
 }
-/* Animation when an item is hovered over */
+
 #homebar a:hover {
   font-weight: bold;
   cursor: pointer;
 }
 #homebar li:hover{
-  background-color:#171717;
 }
 #homebar li:hover a{
-  color:#00f6ff;
+  color:#1ece00;
 }
-
 .searchBlocks {
   width: 100%;
   height: 40%;
-
 }
-
-footer{
-    font-family: 'Days One', sans-serif;
-    font-size: 1em;
-    height: 3%;
-    background-color:#171717;
-    text-align: center;
-    position: fixed;
-    left: 0;
-    bottom:0;
-    width: 100%;
-    color:#79a9f7;
+#footer {
+  background-color: rgba(0,0,0,0.1);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
+  text-align: center;
+  color:#79a9f7;
+  left: 0;
+  bottom: 0;
+  height: 3%;
+  position: relative;
+  width: 100%;
+  margin-top: 10%;
 }
-
-
 
 .button_box {
   margin: 2% auto;
@@ -88,7 +89,6 @@ footer{
   width: 330px;
   padding: 7px;
 
-  background: #f44295;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -139,10 +139,10 @@ footer{
   cursor: pointer;
   height: 40px;
   width: 70px;
-  font: bold 15px/40px 'Raleway', sans-serif;
+  font: bold 14px/30px 'Raleway', sans-serif;
   color: #fff;
   text-transform: uppercase;
-  background: #D88F3C;
+  background: #ffb84d;
   -moz-border-radius: 0 3px 3px 0;
   -webkit-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
@@ -160,7 +160,7 @@ footer{
   position: absolute;
   border-width: 8px 8px 8px 0;
   border-style: solid solid solid none;
-  border-color: transparent #D88F3C transparent;
+  border-color: transparent #ffb84d transparent;
   top: 12px;
   left: -6px;
 }
@@ -173,26 +173,4 @@ footer{
 .form-wrapper-2 button::-moz-focus-inner {
   border: 0;
   padding: 0;
-}
-
-.border {
-  border-style: solid;
-  width: 100%;
-  border-width: 1px;
-}
-
-#profile_block {
-  width: 60%;
-  height: 55%;
-  margin-left: 20%;
-  margin-top: 5%;
-  border-style: solid;
-}
-#abstract {
-  width: 80%;
-  padding-left: 10%;
-  padding-bottom: 3%;
-}
-#group_members {
-  width: 33%;
 }
