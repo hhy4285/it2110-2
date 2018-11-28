@@ -10,7 +10,7 @@
 
   <header>
   	<ul id="homebar">
-      <li><a href="index.html"> HOME </a></li>
+      <li><a href="index.php"> HOME </a></li>
       <div class="right">
         <li><a href="user_profile.html"> LOG OUT </a></li>
         <li><a href="login.html"> LOGIN </a></li>
@@ -31,6 +31,8 @@
         <button type="submit">Search</button>
       </form>
     </div>
-    <div id="footer">© Copyright 2018, RPI | Group 7</div>   
+    <?php
+      include('resources/footer.php');
+    ?>
   </body>
 </html>
