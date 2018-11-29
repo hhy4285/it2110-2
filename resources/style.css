@@ -22,6 +22,7 @@ h2 {
   margin: 0;
   height: 3%;
   background-color:#ffc919;
+  border-bottom: 1px solid #e6b000;
   font-family: 'Bowlby One SC', cursive;
 }
 #homebar li {
@@ -65,13 +66,13 @@ h2 {
 }
 footer {
   text-align: center;
-  height: 19px;
+  height: 120px;
   width: 100%;
-  margin-top: 80px;
   font-family: "Courier New", Courier, monospace;
   font-size: 1em;
   color:#79a9f7;
-  background-color: rgba(0,0,0,0.1);
+  background-color: #f2f2f2;
+  border-top: 1px solid #e6e6e6;
 }
 
 .button_box {
