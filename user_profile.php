@@ -70,7 +70,7 @@
             </table>
 
           </th>
-          <th style="width: 60%;">
+          <th>
             <div id="user-data-form-wrapper">
 
               <!-- form for user data, should pull current values from database to fill fields -->
@@ -101,8 +101,8 @@
         </tr>
       </table>
 
-      <?php include('resources/footer.php'); ?>
+      
     </div>
-
+<?php include('resources/footer.php'); ?>
   </body>
 </html>

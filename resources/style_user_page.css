@@ -10,7 +10,10 @@ h1 {
 
 #user-acount-page-wrapper {
 	padding-top: 30px;
-	padding-bottom: 30px;
+	height: auto;
+	width: 60%;
+	margin: auto;
+	background-color: #fff3cc;
 }
 
 #table-outer {
@@ -33,6 +36,7 @@ ul#all-groups {
 #user-data-form {
 	float: left;
 	text-align: left;
+	width: 430px;
 }
 
 .input-field {
