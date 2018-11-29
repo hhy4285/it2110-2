@@ -12,7 +12,7 @@
 
   <header>
     <ul id="homebar">
-      <li><a href="index.php"> HOME </a></li>
+      <li><a href="../index.php"> HOME </a></li>
       <div class="right">
         <li><a href="user_profile.html"> LOG OUT </a></li>
         <li><a href="login.html"> LOGIN </a></li>
