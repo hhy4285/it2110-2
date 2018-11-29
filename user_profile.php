@@ -50,7 +50,20 @@
               <tr>
                 <th>
                   <!-- button to clear current form data to form -->
-                  <button type="button" class="controleButton" id="clearButton" onclick="alert('Clear!')">Clear</button>
+                  <script type="text/javascript">
+                    function clearFields() {
+                      document.getElementById("firstname").value = "";
+                      document.getElementById("lastname").value = "";
+                      document.getElementById("preferredjob").value = "";
+                      document.getElementById("skill-1").value = "";
+                      document.getElementById("skill-2").value = "";
+                      document.getElementById("skill-3").value = "";
+                      document.getElementById("skill-4").value = "";
+                      document.getElementById("contact-email").value = "";
+                      document.getElementById("biography").value = "";
+                    };
+                  </script>
+                  <button type="button" class="controleButton" id="clearButton" onclick="clearFields();">Clear</button>
                 </th>
                 <th>
                   <!-- button to save current form data to database -->
@@ -76,20 +89,20 @@
               <!-- form for user data, should pull current values from database to fill fields -->
               <form id="user-data-form">
                 <!-- name data -->
-                <textarea class="input-field" type="text" name="firstname" placeholder="First Name" rows="1" maxlength="25"></textarea><br>
-                <textarea class="input-field" type="text" name="lastname" placeholder="Last Name" rows="1" maxlength="25"></textarea><br>
+                <textarea class="input-field" type="text" id="firstname" placeholder="First Name" rows="1" maxlength="25"></textarea><br>
+                <textarea class="input-field" type="text" id="lastname" placeholder="Last Name" rows="1" maxlength="25"></textarea><br>
 
-                <textarea class="input-field" type="text" name="preferredjob" placeholder="Preferred Job" rows="1" maxlength="25"></textarea><br>
+                <textarea class="input-field" type="text" id="preferredjob" placeholder="Preferred Job" rows="1" maxlength="25"></textarea><br>
 
                 <!-- top skills input -->
-                <textarea class="input-field" type="text" name="skill-1" placeholder="Skill 1" rows="1" maxlength="25"></textarea>
-                <textarea class="input-field" type="text" name="skill-2" placeholder="Skill 2" rows="1" maxlength="25"></textarea><br>
-                <textarea class="input-field" type="text" name="skill-3" placeholder="Skill 3" rows="1" maxlength="25"></textarea>
-                <textarea class="input-field" type="text" name="skill-4" placeholder="Skill 4" rows="1" maxlength="25"></textarea><br>
+                <textarea class="input-field" type="text" id="skill-1" placeholder="Skill 1" rows="1" maxlength="25"></textarea>
+                <textarea class="input-field" type="text" id="skill-2" placeholder="Skill 2" rows="1" maxlength="25"></textarea><br>
+                <textarea class="input-field" type="text" id="skill-3" placeholder="Skill 3" rows="1" maxlength="25"></textarea>
+                <textarea class="input-field" type="text" id="skill-4" placeholder="Skill 4" rows="1" maxlength="25"></textarea><br>
 
-                <textarea class="large-input-field" type="text" name="contact-email" placeholder="Contact Email" rows="1" maxlength="50"></textarea><br>
+                <textarea class="large-input-field" type="text" id="contact-email" placeholder="Contact Email" rows="1" maxlength="50"></textarea><br>
 
-                <textarea id="biography" class="input-field" type="text" name="lastname" placeholder="Biography..." rows="8" maxlength="440"></textarea>
+                <textarea id="biography" class="input-field" type="text" placeholder="Biography..." rows="8" maxlength="440"></textarea>
 
 
               </form>

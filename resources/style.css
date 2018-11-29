@@ -24,6 +24,7 @@ h2 {
   background-color:#ffc919;
   border-bottom: 1px solid #e6b000;
   font-family: 'Bowlby One SC', cursive;
+  white-space: nowrap;
 }
 #homebar li {
   display: inline-block;
@@ -66,7 +67,7 @@ h2 {
 }
 footer {
   text-align: center;
-  height: 120px;
+  height: 100px;
   width: 100%;
   font-family: "Courier New", Courier, monospace;
   font-size: 1em;
