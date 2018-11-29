@@ -3,7 +3,7 @@
   <head>
     <title>Group Page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link type="text/css" rel="stylesheet" href="resources/style.css"/>
+    <link type="text/css" rel="stylesheet" href="../resources/style.css"/>
     <link type="text/css" rel="stylesheet" href="resources/style_group_profile.css"/>
     <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
@@ -65,6 +65,6 @@
 
     </div>
     </div>
-    <?php include('resources/footer.php'); ?>
+    <?php include('../resources/footer.php'); ?>
   </body>
 </html>
