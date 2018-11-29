@@ -34,11 +34,8 @@
           <button type="submit">Search</button>
         </form>
       </div>
-
-    
-
-    <?php include('resources/footer.php'); ?>
     </div>
+    <?php include('resources/footer.php'); ?>
 
   </body>
 </html>

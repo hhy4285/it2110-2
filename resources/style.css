@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  min-height: 100%;
 }
 body {
   margin:0;
@@ -60,18 +61,13 @@ h2 {
   height: 40%;
 }
 #container {
-  height: 100%;
-}
-#footer-container {
-  margin-top: 10%;
-  position: relative;
+  min-height: calc(100vh - 20.3vh);
 }
 footer {
   text-align: center;
-  left: 0;
-  bottom: 0;
+  height: 19px;
   width: 100%;
-  position: absolute;
+  margin-top: 80px;
   font-family: "Courier New", Courier, monospace;
   font-size: 1em;
   color:#79a9f7;
