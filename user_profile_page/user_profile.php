@@ -3,7 +3,7 @@
   <head>
     <title>Group 7</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link type="text/css" rel="stylesheet" href="resources/style.css" />
+    <link type="text/css" rel="stylesheet" href="../resources/style.css" />
     <link type="text/css" rel="stylesheet" href="resources/style_user_page.css" />
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
@@ -116,6 +116,6 @@
 
       
     </div>
-<?php include('resources/footer.php'); ?>
+<?php include('../resources/footer.php'); ?>
   </body>
 </html>
