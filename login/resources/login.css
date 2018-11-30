@@ -19,6 +19,18 @@ form {
 }
 
 #login {
+<<<<<<< HEAD
+   position: absolute;
+   border-bottom: 3px solid black;
+   border-bottom-right-radius: 5px;
+   border-bottom-left-radius: 5px;
+   /* Use for parallax scrolling effect */
+   top: 25%;
+   right: 50%;
+   transform: translate(50%);
+   background-color: rgba(255,255,255,0.5);
+   border-radius: 10px;
+=======
   width: 40%;
   right: 50%;
   margin-top: 5%;
@@ -30,14 +42,22 @@ form {
   transform: translate(50%);
   background-color: rgb(255,201,25, 0.7); 
   border-radius: 10px;
+>>>>>>> b3118b49e929f2edc42c947bcacdaceda714c55f
    
 }
 
 #login h2 {
+<<<<<<< HEAD
+    /*color: white;*/
+    font-family: sans-serif;
+    font-size: 35px;
+    text-align: center; 
+=======
   color: white;
   font-family: sans-serif;
   font-size: 35px;
   text-align: center;
+>>>>>>> b3118b49e929f2edc42c947bcacdaceda714c55f
 }
 
 #login input {
