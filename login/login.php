@@ -34,6 +34,7 @@ if(isset($_POST['Submit'])){
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    	<title>Login</title>
         <link rel="stylesheet" href="resources/login.css">
     </head>
     <body>
@@ -46,10 +47,12 @@ if(isset($_POST['Submit'])){
 
               <h2>Sign up</h2>
               <input type="text" id="username" placeholder="Enter Username">
-              <input type="text" id="password" placeholder="Enter Password">
               <input type="text" id="email" placeholder="Enter Email">
+              <input type="text" id="password" placeholder="Enter Password">
+              <input type="text" id="password2" placeholder="Re-enter Password">
+              <input type="text" id="firstName" placeholder="Enter your first name">
+              <input type="text" id="lastName" placeholder="Enter your last name">
               <input type="button" class="loginSignupButtons" name="Submit" value="Sign Up">
-               <p>Don't have an account? <a href="registration.html">Sign up</a></p>
           </form>
         </div>
     </body>
