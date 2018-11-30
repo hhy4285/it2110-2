@@ -1,12 +1,17 @@
 <?php
+try{
   session_start();
 	$host = 'localhost';
 	$dbname = 'websys';
 	$dbuser = 'root';
-	$dbpass = 'maple351';
+	$dbpass = '';
 
 	// Connect to the database
 	$con = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpass);
+}
+catch (Exception $e) {
+  echo "Error: " . $e->getMessage();
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +44,7 @@
                   exit;
                 }
                 else
-                  echo"Sorry, your credentials are not valid, Please try again.";
+                  echo"<p style=\"text-align: center;\">Sorry, your credentials are not valid, Please try again.</p>";
               }
               ?>
               <input type="text" id="username" name = "username" placeholder="Enter Username">

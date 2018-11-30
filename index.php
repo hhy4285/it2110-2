@@ -1,4 +1,5 @@
 <?php
+try{
   session_start();
   $host = 'localhost';
   $dbname = 'websys';
@@ -7,10 +8,13 @@
 
   // Connect to the database
   $con = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpass);
-
   if(isset($_SESSION['username']) && !is_null($_SESSION['username'])){
     echo "hello";
   }
+}
+catch (Exception $e) {
+  echo "Error: " . $e->getMessage();
+}
 ?>
 
 <!DOCTYPE html>
