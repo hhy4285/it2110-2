@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['username'])){
+      $username = $_SESSION['username'];
+    }
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,7 +22,7 @@
       <li><a href="../index.php"> HOME </a></li>
       <div class="right">
         <li><a href="user_profile.html"> LOG OUT </a></li>
-        <li><a href="login.html"> LOGIN </a></li>
+        <li><a href="../login/login.php"> LOGIN </a></li>
       </div>
     </ul>
   </header>
