@@ -116,6 +116,6 @@
 
       
     </div>
-<?php include('../resources/footer.php'); ?>
+    <?php include('../resources/footer.php'); ?>
   </body>
 </html>
