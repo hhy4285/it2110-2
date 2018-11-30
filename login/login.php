@@ -1,50 +1,52 @@
 <?php
-// Grab User submitted information
-if(isset($_POST['Submit'])){
-	$user = $_POST["username"];
-	$pass = $_POST["password"];
-
+  session_start();
 	$host = 'localhost';
 	$dbname = 'websys';
 	$dbuser = 'root';
-	$dbpass = '';
+	$dbpass = 'maple351';
 
 	// Connect to the database
-	$con = mysql_connect($host,$dbuser,$dbpass);
-	// Make sure we connected successfully
-	if(! $con)
-	{
-	    die('Connection Failed'.mysql_error());
-	}
-
-	// Select the database to use
-	mysql_select_db($dbname,$con);
-
-	$result = mysql_query("SELECT username, password FROM users WHERE username = $user");
-
-	$row = mysql_fetch_array($result);
-
-	if($row["username"]==$user && $row["password"]==$pass)
-	    echo"You are a validated user.";
-	else
-	    echo"Sorry, your credentials are not valid, Please try again.";
-}
+	$con = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpass);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../resources/login.css">
+        <link rel="stylesheet" href="./resources/login.css">
     </head>
     <body>
         <div id="login">
           <form method="post" action="login.php">
               <h2>Login</h2>
-              <input type="text" id="username" placeholder="Enter Username">
-              <input type="text" id="password" placeholder="Enter Password">
+              <fieldset>
+              <?php
+              if(isset($_POST['Submit'])){              
+              // Grab User submitted information
               
-              <input type="button" id="login-button" name="Submit" value="Sign In">
+              	$user = $_POST["username"];
+              	$pass = $_POST["password"];
+              
+              	$login_stmt = $con->prepare('SELECT username, password FROM users WHERE username = :username AND password = :password');
+                $login_stmt->execute(array(':username' => $_POST['username'], ':password' => $_POST['password']));
+              
+              	if($user = $login_stmt->fetch())
+                {
+              	  //echo"You are a validated user.";
+                  $_SESSION['username'] = $user['username'];
+                  $_SESSION['uid'] = $user['uid'];
+                  header("Location: ../index.php");
+                  exit;
+                }
+              	else
+              	  echo"Sorry, your credentials are not valid, Please try again.";
+              }
+              ?>
+              <input type="text" id="username" name="username" placeholder="Enter Username" required>
+              <input type="password" id="password" name="password" placeholder="Enter Password" required>
+              
+              <input type="submit" id="login-button" name="Submit" value="Sign In">
                <p>Don't have an account? <a href="registration.html">Sign up</a></p>
+		  </fieldset>
           </form>
         </div>
     </body>
