@@ -34,7 +34,7 @@ if(isset($_POST['Submit'])){
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="resources/login.css">
+        <link rel="stylesheet" href="../resources/login.css">
     </head>
     <body>
         <div id="login">

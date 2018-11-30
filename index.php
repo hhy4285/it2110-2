@@ -13,7 +13,7 @@
       <li><a href="index.php"> HOME </a></li>
       <div class="right">
         <li><a href="user_profile.php"> LOG OUT </a></li>
-        <li><a href="login.html"> LOGIN </a></li>
+        <li><a href="login/login.php"> LOGIN </a></li>
       </div>
     </ul>
   </header>
