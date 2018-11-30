@@ -44,7 +44,7 @@
               ?>
               <input type="text" id="username" name = "username" placeholder="Enter Username">
               <input type="text" id="password" name = "password" placeholder="Enter Password">
-              <input type="button" class="loginSignupButtons" name="Login" value="Sign In">
+              <input type="submit" class="loginSignupButtons" name="Login" value="Sign In">
               </fieldset>
 
               <h2>Sign up</h2>
@@ -55,7 +55,7 @@
               <input type="text" id="password2" placeholder="Re-enter Password">
               <input type="text" id="firstName" placeholder="Enter your first name">
               <input type="text" id="lastName" placeholder="Enter your last name">
-              <input type="button" class="loginSignupButtons" name="SignUp" value="Sign Up">
+              <input type="submit" class="loginSignupButtons" name="SignUp" value="Sign Up">
               </fieldset>
           </form>
         </div>
