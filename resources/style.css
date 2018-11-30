@@ -70,29 +70,27 @@ footer {
   text-align: center;
   height: 100px;
   width: 100%;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 1em;
-  color:#79a9f7;
+  color:#b3b3b3;
   background-color: #f2f2f2;
   border-top: 1px solid #e6e6e6;
 }
 
-.social-icons {
+#git-icon {
     text-align: center;
-}
-.social-icons li {
     display:inline-block;
     list-style-type:none;
-    -webkit-user-select:none;
-    -moz-user-select:none;
 }
-.social-icons li a {
-    border-bottom: none;
+
+#git-icon img {
+    width:60px;
+    height:60px;
 }
-.social-icons li img {
-    width:70px;
-    height:70px;
-    margin-right: 20px;
+
+#footer-organization {
+  border: 1pt solid black;
+  display: inline-block;
 }
 
 /*-------------------------------------*/

@@ -7,6 +7,7 @@
     <link type="text/css" rel="stylesheet" href="resources/style_user_page.css" />
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
 
