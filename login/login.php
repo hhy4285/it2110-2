@@ -42,8 +42,13 @@ if(isset($_POST['Submit'])){
               <h2>Login</h2>
               <input type="text" id="username" placeholder="Enter Username">
               <input type="text" id="password" placeholder="Enter Password">
-              
-              <input type="button" id="login-button" name="Submit" value="Sign In">
+              <input type="button" class="loginSignupButtons" name="Submit" value="Sign In">
+
+              <h2>Sign up</h2>
+              <input type="text" id="username" placeholder="Enter Username">
+              <input type="text" id="password" placeholder="Enter Password">
+              <input type="text" id="email" placeholder="Enter Email">
+              <input type="button" class="loginSignupButtons" name="Submit" value="Sign Up">
                <p>Don't have an account? <a href="registration.html">Sign up</a></p>
           </form>
         </div>
