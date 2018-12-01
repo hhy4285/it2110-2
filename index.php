@@ -4,7 +4,7 @@ try{
   $host = 'localhost';
   $dbname = 'websys';
   $dbuser = 'root';
-  $dbpass = 'maple351';
+  $dbpass = '';
 
   // Connect to the database
   $con = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpass);

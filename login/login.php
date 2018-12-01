@@ -39,7 +39,6 @@ catch (Exception $e) {
                 {
                   //echo"You are a validated user.";
                   $_SESSION['username'] = $user['username'];
-                  $_SESSION['uid'] = $user['uid'];
                   header("Location: ../index.php");
                   exit;
                 }
