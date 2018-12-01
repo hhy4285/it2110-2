@@ -4,12 +4,12 @@ try{
   $host = 'localhost';
   $dbname = 'websys';
   $dbuser = 'root';
-  $dbpass = '';
+  $dbpass = 'maple351';
 
   // Connect to the database
   $con = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpass);
-  if(isset($_SESSION['username']) && !is_null($_SESSION['username'])){
-    echo "hello";
+  if(isset($_SESSION['username'])){
+  } else {
   }
 }
 catch (Exception $e) {
@@ -31,8 +31,8 @@ catch (Exception $e) {
     <ul id="homebar">
       <li><a href="index.php"> HOME </a></li>
       <div class="right">
-        <li><a href="user_profile.php"> LOG OUT </a></li>
-        <li><a href="login/login.php"> LOGIN </a></li>
+        <?php include('resources/menubar.php'); ?>
+
       </div>
     </ul>
   </header>
