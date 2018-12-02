@@ -77,35 +77,46 @@ h2 {
 /* -- Footer CSS ------------------------------------- */
 footer {
   text-align: center;
-  height: 100px;
   width: 100%;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: small;
+  font-size: x-small;
   color:#b3b3b3;
   background-color: #f2f2f2;
   border-top: 1px solid #e6e6e6;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;  
+}
+
+footer p {
+  margin-bottom: 0px;
+  margin-top: 0;
+  vertical-align: bottom;
+  line-height: 30px;
 }
 
 #git-icon {
-    text-align: center;
-    display:inline-block;
-    list-style-type:none;
+  text-align: center;
+  display:inline-block;
+  list-style-type:none;
 }
 
 #git-icon img {
-    width:45px;
-    height:45px;
+  width:45px;
+  height:45px;
 }
 
 #footer-organization {
-  border: 1pt solid black;
-  display: inline-block;
   width: 50%;
+  table-layout: auto;
+  margin: auto;
+  padding-top: 14px;
 }
 
-#footer-organization th {
-  margin-left: 10%;
-  margin-right: 10%;
+#footer-organization tr th {
+  white-space: nowrap;
+  color: #919191;
 }
 
 /*-------------------------------------*/
