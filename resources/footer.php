@@ -19,7 +19,7 @@
 
 
 
-	      			© Copyright 2018, RPI | Group 7
+	      			<p>© Copyright 2018, RPI | Group 7</p>
       		</footer>
     	</div>';
 ?>

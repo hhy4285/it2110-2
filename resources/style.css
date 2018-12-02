@@ -80,7 +80,7 @@ footer {
   height: 100px;
   width: 100%;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 1em;
+  font-size: small;
   color:#b3b3b3;
   background-color: #f2f2f2;
   border-top: 1px solid #e6e6e6;
@@ -100,6 +100,7 @@ footer {
 #footer-organization {
   border: 1pt solid black;
   display: inline-block;
+  width: 50%;
 }
 
 #footer-organization th {
