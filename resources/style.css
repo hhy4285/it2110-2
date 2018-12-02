@@ -56,10 +56,20 @@ h2 {
 #homebar li:hover a{
   color:#1ece00;
 }
-
-.searchBlocks {
-  width: 100%;
+#search {
+  margin-left: 35%;
+  margin-top: 5%;
+}
+#button_box {
+  width: 39%;
   height: 40%;
+  display: inline-block;
+  vertical-align: top;
+}
+#checkboxes {
+  display: inline-block;
+  margin-top: 18px;
+  vertical-align: top;
 }
 #container {
   min-height: calc(100vh - 20.3vh);

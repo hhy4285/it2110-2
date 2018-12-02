@@ -41,21 +41,28 @@ catch (Exception $e) {
 
     <div id="container">
 
-      <div class="button_box">
-        <form class="form-wrapper-2 cf">
-          <input type="text" placeholder="Search Groups..." required>
-          <button type="submit">Search</button>
-        </form>
+      <div id="search">
+
+        <div id="button_box">
+          <form class="form-wrapper-2 cf">
+            <input type="text" id="inSearchBox" placeholder="Search..." required>
+            <button type="submit">Go</button>
+          </form>
+        </div>
+        <div id="checkboxes">
+          <input type="checkbox" id="search_solos" class="checkboxss" name="search_solos" value="Solos">
+          <label for="search_solos">Solos</label>
+
+          <input type="checkbox" id="search_groups" class="checkboxss" name="search_groups" value="Groups">
+          <label for="search_groups">Groups</label>
+        </div>
       </div>
 
-      <div class="button_box">
-        <form class="form-wrapper-2 cf">
-          <input type="text" placeholder="Search Solos..." required>
-          <button type="submit">Search</button>
-        </form>
-      </div>
     </div>
     <?php include('resources/footer.php'); ?>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="resources/homepage.js"></script>
   </body>
+
 </html>
