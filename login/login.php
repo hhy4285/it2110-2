@@ -2,7 +2,7 @@
 try{
   session_start();
 	$host = 'localhost';
-	$dbname = 'websys';
+	$dbname = 'websysproject';
 	$dbuser = 'root';
 	$dbpass = '';
 
