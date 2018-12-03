@@ -35,11 +35,10 @@
               $_SESSION['UserID'] = 1; // set user id for debugging
               
               $UserID = $_SESSION['UserID'];
-              echo $_SESSION['FirstName'];
 
               if (count($_FILES) > 0) {
                 if (is_uploaded_file($_FILES['userImage']['tmp_name'])) {
-                  require_once "db.php";
+                  //require_once "db.php";
                   $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
                   
                   $sql = "UPDATE users SET column10 = VALUES('{$imgData}') WHERE UserID='".$UserID."' LIMIT 1";
