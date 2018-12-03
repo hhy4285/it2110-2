@@ -13,7 +13,6 @@
 	      				<th>Home</th>
 	      				<th>My Profile</th>
 	      				<th>My Group</th>
-	      				<th>Admin Login</th>
 						  </tr>
 						</table>
 
