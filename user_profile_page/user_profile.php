@@ -29,19 +29,9 @@
         <tr>
           <th style="float: right;">
 
-            <!-- profile photo, on click bring up file browser to pick new image, save to database -->
-            <div id="image-wrapper">
-              <input type="image" src="resources/default_user_photo.jpg" alt="User Photo" width="170px" height="170px" />
-              <input type="file" id="user_photo" style="display: none;" />
-              <script type="text/javascript">
-                $("input[type='image']").click(function() {
-                  $("input[id='user_photo']").click();
-                });
-              </script>
-            </div><br>
-
             <!-- php to load image upload to database -->
             <?php
+              $_SESSION['UserID'] = 1;
               $UserID = $_SESSION['UserID'];
 
               if (count($_FILES) > 0) {
@@ -57,14 +47,19 @@
                 }
               }
             ?>
-            
-            <!-- link to resume, on click, ask for file to link -->
-            <form id="image-upload-form" enctype="multipart/form-data" action="" method="post">              
-              <input id="resumeInput" type="file" style="display:none;" />
-              <input type="button" id="resumeButton" value="Resume" onclick="document.getElementById('resumeInput').click();" /><br>
-            </form>
-            <br>
-            <br>
+
+            <!-- profile photo, on click bring up file browser to pick new image, save to database -->
+            <div id="image-wrapper">
+              <form id="image-upload-form" enctype="multipart/form-data" action="" method="post">    
+                <input type="image" src="resources/default_user_photo.jpg" alt="User Photo" width="170px" height="170px" />
+                <input type="file" id="user_photo" style="display: none;" />
+                <script type="text/javascript">
+                  $("input[type='image']").click(function() {
+                    $("input[id='user_photo']").click();
+                  });
+                </script>
+              </form>
+            </div><br>
 
             <table id="buttonTable">
               <tr>
@@ -121,6 +116,8 @@
                 <textarea class="input-field" type="text" id="skill-4" placeholder="Skill 4" rows="1" maxlength="25"></textarea><br>
 
                 <textarea class="large-input-field" type="text" id="contact-email" placeholder="Contact Email" rows="1" maxlength="50"></textarea><br>
+
+                <textarea class="large-input-field" type="text" id="linkdin-link" placeholder="Linkdin Link" rows="1" maxlength="50"></textarea><br>
 
                 <textarea id="biography" class="input-field" type="text" placeholder="Biography..." rows="8" maxlength="440"></textarea>
 
