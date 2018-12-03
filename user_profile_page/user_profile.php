@@ -51,15 +51,44 @@
             <!-- profile photo, on click bring up file browser to pick new image, save to database -->
             <div id="image-wrapper">
               <form id="image-upload-form" enctype="multipart/form-data" action="" method="post">    
-                <input type="image" src="resources/default_user_photo.jpg" alt="User Photo" width="170px" height="170px" />
-                <input type="file" id="user_photo" style="display: none;" />
+
+                <img id="display-image" src="resources/default_user_photo.jpg" alt="User Photo" width="170px" height="170px"/><br>
+
+                <!--
+                <input id="display-image" type="image" src="resources/default_user_photo.jpg" alt="User Photo" width="170px" height="170px" />
+                <input name="userImage" type="file" onchange="readURL(this);" id="user_photo" style="display: none;" accept="image/*"/>
+              
                 <script type="text/javascript">
                   $("input[type='image']").click(function() {
                     $("input[id='user_photo']").click();
+                      $(document.getElementById("display-image").attr("src")) = ;
                   });
                 </script>
+                -->
               </form>
             </div><br>
+
+            <input id="input-image" type="file" onchange="readURL(this);" />
+            <label id="choose-file-button" for="input-image">Choose a Picture</label>
+            <script type="text/javascript">
+             function readURL(input) {
+                if (input.files && input.files[0]) {
+                  var reader = new FileReader();
+
+                  reader.onload = function (e) {
+                      $('#display-image')
+                          .attr('src', e.target.result)
+                          .width(170)
+                          .height(170);
+                  };
+
+                  reader.readAsDataURL(input.files[0]);
+                }
+              }              
+            </script>
+
+            <br>
+            <br>
 
             <table id="buttonTable">
               <tr>
