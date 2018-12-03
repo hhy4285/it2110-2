@@ -31,8 +31,11 @@
 
             <!-- php to load image upload to database -->
             <?php
-              $_SESSION['UserID'] = 1;
+              session_start();
+              $_SESSION['UserID'] = 1; // set user id for debugging
+              
               $UserID = $_SESSION['UserID'];
+              echo $_SESSION['FirstName'];
 
               if (count($_FILES) > 0) {
                 if (is_uploaded_file($_FILES['userImage']['tmp_name'])) {
