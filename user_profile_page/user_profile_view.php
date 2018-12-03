@@ -31,7 +31,7 @@
 
             <!-- profile photo, on click bring up file browser to pick new image, save to database -->
             <div id="image-wrapper">
-              <input type="image" src="resources/default_user_photo.jpg" alt="User Photo" width="170px" height="170px" />
+              <input type="image" src="resources/default_user_photo.png" alt="User Photo" width="170px" height="170px" />
               <input type="file" id="user_photo" style="display: none;" />
               <script type="text/javascript">
                 $("input[type='image']").click(function() {

@@ -23,6 +23,25 @@
 
   <body>
 
+    <!-- php to upload all form data to database or delete user for database -->
+    <?php
+      // connect to database
+      try {
+        $dbname = 'lab9';
+        $user = 'root';
+        $pass = '';
+        $dbconn = new PDO('mysql:host=127.0.0.1;dbname='.$dbname, $user, $pass);
+      }
+      catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+      }
+
+      // check if save button pressed  
+      if (isset($_POST['save']) && $_POST['save'] == 'Save') {
+        mysqli_query($conn,"UPDATE users SET column10 = VALUES('{$imgData}') WHERE UserID='".$UserID."' LIMIT 1");
+      }
+    ?>
+
     <div id="user-acount-page-wrapper">
       <h1>Edit Profile</h1>
       <table id="table-outer">
@@ -54,7 +73,7 @@
             <div id="image-wrapper">
               <form id="image-upload-form" enctype="multipart/form-data" action="" method="post">    
 
-                <img id="display-image" src="resources/default_user_photo.jpg" alt="User Photo" width="170px" height="170px"/><br>
+                <img id="display-image" src="resources/default_user_photo.png" alt="User Photo" width="170px" height="170px"/><br>
 
                 <!--
                 <input id="display-image" type="image" src="resources/default_user_photo.jpg" alt="User Photo" width="170px" height="170px" />
@@ -113,7 +132,7 @@
                 </th>
                 <th>
                   <!-- button to save current form data to database -->
-                  <button type="button" class="controleButton" id="saveButton" onclick="alert('Current Data Saved!')">Save</button>
+                  <label for="user-data-form" type="button" class="controleButton" id="saveButton" value="Save" name="save" onclick="alert('Current Data Saved!')">Save</label>
                 </th>
               </tr>
               <tr>
@@ -133,7 +152,7 @@
             <div id="user-data-form-wrapper">
 
               <!-- form for user data, should pull current values from database to fill fields -->
-              <form id="user-data-form">
+              <form id="user-data-form" method="post" action="user_profile.php">
                 <!-- name data -->
                 <textarea class="input-field" type="text" id="firstname" placeholder="First Name" rows="1" maxlength="25"></textarea><br>
                 <textarea class="input-field" type="text" id="lastname" placeholder="Last Name" rows="1" maxlength="25"></textarea><br>
@@ -152,10 +171,8 @@
 
                 <textarea id="biography" class="input-field" type="text" placeholder="Biography..." rows="8" maxlength="440"></textarea>
 
-
               </form>
               
-
             </div>
 
           </th> 
