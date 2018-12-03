@@ -88,6 +88,11 @@ footer {
   right: 0;  
 }
 
+footer a {
+  color: #919191;
+  text-decoration: none;
+}
+
 footer p {
   margin-bottom: 0px;
   margin-top: 0;

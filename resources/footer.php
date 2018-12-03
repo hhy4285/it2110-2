@@ -10,15 +10,11 @@
 	          			<img src="../resources/github-icon.png" alt="Github" />
 	      					</a>
 	      				</th>			
-	      				<th>Home</th>
-	      				<th>My Profile</th>
-	      				<th>My Group</th>
-	      				<th>Admin Login</th>
+	      				<th><a href="../index.php">Home</a></th>
+	      				<th><a href="../user_profile_page/user_profile_view.php">My Profile</a></th>
+	      				<th><a href="../group_profile_page/group_profile.php">My Group</a></th>
 						  </tr>
 						</table>
-
-
-
 	      			<p>© Copyright 2018, RPI | Group 7</p>
       		</footer>
     	</div>';
