@@ -25,6 +25,7 @@ catch (Exception $e) {
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
     <link type="text/css" rel="stylesheet" href="resources/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   </head>
 
   <header>
