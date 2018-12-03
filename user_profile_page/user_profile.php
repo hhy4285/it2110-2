@@ -27,10 +27,10 @@
     <?php
       // connect to database
       try {
-        $dbname = 'lab9';
+        $dbname = 'websysproject';
         $user = 'root';
         $pass = '';
-        $dbconn = new PDO('mysql:host=127.0.0.1;dbname='.$dbname, $user, $pass);
+        $conn = new PDO('mysql:host=127.0.0.1;dbname='.$dbname, $user, $pass);
       }
       catch (Exception $e) {
         echo "Error: " . $e->getMessage();
