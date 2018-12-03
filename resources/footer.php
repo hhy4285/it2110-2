@@ -15,9 +15,6 @@
 	      				<th>My Group</th>
 						  </tr>
 						</table>
-
-
-
 	      			<p>© Copyright 2018, RPI | Group 7</p>
       		</footer>
     	</div>';
