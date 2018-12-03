@@ -40,10 +40,29 @@
               </script>
             </div><br>
 
-            <!-- link to resume, on click, ask for file to link -->
-            <input id="resumeInput" type="file" style="display:none;" />
-            <input type="button" id="resumeButton" value="Resume" onclick="document.getElementById('resumeInput').click();" /><br>
+            <!-- php to load image upload to database -->
+            <?php
+              $UserID = $_SESSION['UserID'];
 
+              if (count($_FILES) > 0) {
+                if (is_uploaded_file($_FILES['userImage']['tmp_name'])) {
+                  require_once "db.php";
+                  $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
+                  
+                  $sql = "UPDATE users SET column10 = VALUES('{$imgData}') WHERE UserID='".$UserID."' LIMIT 1";
+                  $current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
+                  if (isset($current_id)) {
+                    header("Location: listImages.php");
+                  }
+                }
+              }
+            ?>
+            
+            <!-- link to resume, on click, ask for file to link -->
+            <form id="image-upload-form" enctype="multipart/form-data" action="" method="post">              
+              <input id="resumeInput" type="file" style="display:none;" />
+              <input type="button" id="resumeButton" value="Resume" onclick="document.getElementById('resumeInput').click();" /><br>
+            </form>
             <br>
             <br>
 
