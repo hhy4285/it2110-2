@@ -6,12 +6,9 @@
   padding-left: 10%;
   padding-top: 2.5%;
 }
-#container {
-
-  min-height: calc(100vh - 26vh);
-}
 #profile_block {
   width: 50%;
+  height: 55%;
   margin-left: 25%;
   margin-top: 5%;
   margin-bottom: 4%;
@@ -67,6 +64,7 @@
   display: inline-block;
 }
 #projectProgress {
+<<<<<<< HEAD
 }
 .input-field {
   vertical-align: bottom;
@@ -99,4 +97,6 @@
   color: #fff;
   background-color: #ffc919;
   box-shadow: 0 6px #bc930b;
+=======
+>>>>>>> parent of 08484cd... edit page for group profile page
 }

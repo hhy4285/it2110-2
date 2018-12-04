@@ -28,7 +28,7 @@
   </header>
 
   <body>
-    <div id="container">
+    <div id="cotainer">
     <div id="profile_block">
       <h1 id="groupName">Group 7</h1>
       <button id="joinRequest" type="submit">Join Request</button>
