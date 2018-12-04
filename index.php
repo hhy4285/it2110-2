@@ -71,43 +71,68 @@ include("resources/header.php");
       <div id="search">
 
         <div id="button_box">
-          <form class="form-wrapper-2 cf">
-            <input type="text" id="inSearchBox" placeholder="Search..." required>
-            <button type="submit">Go</button>
+          <form class="form-wrapper-2 cf" method="post" action="index.php">
+            <input type="text" id="inSearchBox" name="searchtext" placeholder="Search..." required>
+            <button type="submit" name="search">Go</button>
           </form>
         </div>
         <div id="checkboxes">
-          <input type="checkbox" id="search_solos" class="checkboxss" name="search_solos" value="Solos">
+          <form method="post" action="index.php">
+          <input type="radio" id="search_solos" class="checkboxss" name="search_type" value="Solos">
           <label for="search_solos">Solos</label>
 
-          <input type="checkbox" id="search_groups" class="checkboxss" name="search_groups" value="Groups">
+          <input type="radio" id="search_groups" class="checkboxss" name="search_type" value="Groups">
           <label for="search_groups">Groups</label>
-          <?php
-            if(isset($_POST))
-          ?>
+
+          <input type="checkbox" id="search_groups" name="search_tags" value="Tags">
+          <label for="search_tags">Tags</label>
+          </form>
         </div>
       </div>
-
+      <div id="results">
+        <?php
+          if(isset($_POST["search"])){
+            $term = $_POST["searchtext"];
+            if(isset($_POST["search_type"])) {
+              if($_POST["search_type"] == "Solos"){
+                if(isset($_POST["search_tags"])){
+                  $stmt = $con->prepare();
+                } else {
+                  $stmt = $con->prepare();
+                }
+              } else if ($_POST["search_type"] == "Groups") {
+                if(isset($_POST["search_tags"])){
+                  $stmt = $con->prepare();
+                } else {
+                  $stmt = $con->prepare();
+                }
+              }
+            }
+          }
+        ?>
+      </div>
     </div>
     <?php
-    echo '<div id ="footer-container">
-            <footer>
-                <table id="footer-organization">
-                          <tr>	
-                            <th>
-                                <a id="git-icon" href="https://github.com/hhy4285/it2110-2.git" target="blank">
-                        <img src="resources/github-icon.png" alt="Github" />
-                            </a>
-                        </th>			
-                        <th><a href="index.php">Home</a></th>
-                        <th><a href="user_profile_page/user_profile_view.php">My Profile</a></th>
-                        <th><a href="group_profile_page/group_profile.php">My Group</a></th>
-                          </tr>
-                        </table>
-                    <p>© Copyright 2018, RPI | Group 7</p>
-            </footer>
-        </div>';
-    ?>
-  </body>
+      echo '<div id ="footer-container">
 
+              <footer>
+
+                <table id="footer-organization">
+                  <tr>	
+                    <th>
+                      <a id="git-icon" href="https://github.com/hhy4285/it2110-2.git" target="blank">
+                      <img src="resources/github-icon.png" alt="Github" />
+                      </a>
+                    </th>			
+                    <th><a href="index.php">Home</a></th>
+                    <th><a href="user_profile_page/user_profile_view.php">My Profile</a></th>
+                    <th><a href="group_profile_page/group_profile.php">My Group</a></th>
+                  </tr>
+                </table>
+                  <p>© Copyright 2018, RPI | Group 7</p>
+              </footer>
+          </div>';
+    ?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </body>
 </html>
