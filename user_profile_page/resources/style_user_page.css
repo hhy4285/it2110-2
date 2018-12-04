@@ -69,7 +69,6 @@ h1 {
   border: none;
   border-radius: 5px;
   box-shadow: 0 9px green;
-
 }
 
 #choose-file-button:focus,
@@ -82,6 +81,33 @@ h1 {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+#upload-file-button {
+	font-family: 'Suez One', serif;
+  display: inline-block;
+  cursor: pointer; /* "hand" cursor */
+  padding: 8px;
+  width: 80%;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #0085cc;
+  box-shadow: 0 9px #004266;
+}
+
+#upload-file-button:focus,
+#upload-file-button:hover {
+  background-color: #006399
+}
+
+#upload-file-button:active {
+  background-color: #006399;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 /* --------------------------------- */
 ul#all-groups {
 	padding: 0;

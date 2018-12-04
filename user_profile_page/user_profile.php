@@ -42,12 +42,22 @@
 
       // check if save button pressed  
       if (isset($_POST['save']) && $_POST['save'] == 'Save') {
+        // declare all vars for easy submission
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $preferredjob = $_POST['preferredjob'];
+        $skill1 = $_POST['skill1'];
+        $skill2 = $_POST['skill2'];
+        $skill3 = $_POST['skill3'];
+        $skill4 = $_POST['skill4'];
+        $linkdinlink = $_POST['linkdinlink'];
+        $biography = $_POST['biography'];
         
-        //$sql = "UPDATE users SET FirstName = ".$_POST['firstname']." LastName = ".$_POST['lastname']." Email = ".$_POST['email']." PreferredJob = ".$_POST['preferredjob']." Skill1 = ".$_POST['skill1']." Skill2 = ".$_POST['skill2']." Skill3 = ".$_POST['skill3']." Skill4 = ".$_POST['skill4']." LinkdinLink = ".$_POST['linkdinlink']." Biography = ".$_POST['biography']." WHERE username = '".$UserName."' LIMIT 1";
-        $sql = "UPDATE users SET FirstName=".$_POST['firstname']." WHERE username=".$UserName." LIMIT 1";
-        if(mysqli_query($conn, $sql)){
-          echo "Passed";
-        } else { echo "SQL Failed"; }
+        $sql = "UPDATE users SET FirstName='$firstname', LastName='$lastname', Email='$email', PreferredJob='$preferredjob', LinkdinLink='$linkdinlink', Biography='$biography', Skill1='$skill1', Skill2='$skill2', Skill3='$skill3', Skill4='$skill4' WHERE username='$UserName' LIMIT 1";
+
+        mysqli_query($conn, $sql);
+
         
         /*
         $imgData = addslashes(file_get_contents($_FILES['userImage']));
@@ -58,6 +68,11 @@
         if (isset($current_id)) {
           header("Location: listImages.php");
         */
+      }
+      if (isset($_POST['submit_image']) && $_POST['submit_image'] == 'Upload Image') {
+        $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
+        $sql = "UPDATE users SET image='$imgData' WHERE username='$UserName' LIMIT 1";
+        mysqli_query($conn, $sql);
       }
     ?>
 
@@ -93,43 +108,44 @@
 
             <!-- profile photo, on click bring up file browser to pick new image, save to database -->
             <div id="image-wrapper">
-              <form id="image-upload-form" enctype="multipart/form-data" action="" method="post">    
+              <form id="image-upload-form" enctype="multipart/form-data" action="user_profile.php" method="post">    
 
-                <img id="display-image" src="resources/default_user_photo.png" alt="User Photo" width="170px" height="170px"/><br>
+                <img id="display-image" src="resources/default_user_photo.png" alt="User Photo" width="170px" height="170px"/>
+                
+                <br>
+                <br>
 
-                <!--
-                <input id="display-image" type="image" src="resources/default_user_photo.jpg" alt="User Photo" width="170px" height="170px" />
-                <input name="userImage" type="file" onchange="readURL(this);" id="user_photo" style="display: none;" accept="image/*"/>
-              
+                <input id="input-image" name="userImage" type="file" onchange="readURL(this);" />
+                <label id="choose-file-button" for="input-image">Choose a Picture</label>
                 <script type="text/javascript">
-                  $("input[type='image']").click(function() {
-                    $("input[id='user_photo']").click();
-                      $(document.getElementById("display-image").attr("src")) = ;
-                  });
+                  function readURL(input) {
+                    if (input.files && input.files[0]) {
+                      var reader = new FileReader();
+
+                      reader.onload = function (e) {
+                          $('#display-image')
+                              .attr('src', e.target.result)
+                              .width(170)
+                              .height(170);
+                      };
+
+                      reader.readAsDataURL(input.files[0]);
+                    }
+                  }              
                 </script>
-                -->
+
+                <br>
+                <br>
+
+                <input id="upload-file-button" type="submit" name="submit_image" value="Upload Image" />
               </form>
-            </div><br>
+            </div>
 
-            <input id="input-image" name="userImage" type="file" onchange="readURL(this);" />
-            <label id="choose-file-button" for="input-image">Choose a Picture</label>
-            <script type="text/javascript">
-             function readURL(input) {
-              if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#display-image')
-                        .attr('src', e.target.result)
-                        .width(170)
-                        .height(170);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-              }
-            }              
-            </script>
-
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <br>
             <br>
 
@@ -154,7 +170,12 @@
                 </th>
                 <th>
                   <!-- button to save current form data to database -->
-                  <label for="submit-user-data" type="button" class="controleButton" id="saveButton" value="Save" name="save">Save</label>
+                  <label for="submit-user-data" type="button" class="controleButton" id="saveButton" value="Save" name="save" onclick="submitForms();">Save</label>
+                  <script type="text/javascript">
+                    function submitForms() {
+                      document.getElementById("image-upload-form").submit();
+                    };
+                  </script>
                 </th>
               </tr>
               <tr>
