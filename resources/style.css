@@ -24,7 +24,6 @@ h2 {
   border-bottom: 1px solid #e6b000;
   font-family: 'Bowlby One SC', cursive;
   white-space: nowrap;
-  box-shadow: 0px 1px 10px #888888;
 }
 #homebar li {
   display: inline-block;
@@ -58,40 +57,50 @@ h2 {
   color:#1ece00;
 }
 #search {
-  padding-top: 15px;
-  text-align: center;
-  left: 50%;
+  margin-left: 35%;
+  margin-top: 5%;
 }
 #button_box {
+  width: 39%;
+  height: 40%;
   display: inline-block;
+  vertical-align: top;
 }
-
 #checkboxes {
-  padding-top: 5px;
+  display: inline-block;
+  margin-top: 18px;
+  vertical-align: top;
 }
 #container {
-  min-height: calc(100vh - 20.3vh);
+  min-height: calc(100vh - 26vh);
 }
-/* -- Footer CSS -- */
+/* -- Footer CSS ------------------------------------- */
 footer {
   text-align: center;
+  position: relative;
   width: 100%;
   font-family: 'Josefin Sans', sans-serif;
   color:#b3b3b3;
   background-color: #f2f2f2;
   border-top: 1px solid #e6e6e6;
-  position: fixed;
   bottom: 0;
   left: 0;
+<<<<<<< HEAD
   right: 0;  
 <<<<<<< HEAD
 =======
+=======
+  right: 0;
+>>>>>>> parent of cea2c79... Merge branch 'master' of https://github.com/hhy4285/it2110-7
 }
 
 footer a {
   color: #919191;
   text-decoration: none;
+<<<<<<< HEAD
 >>>>>>> parent of 08484cd... edit page for group profile page
+=======
+>>>>>>> parent of cea2c79... Merge branch 'master' of https://github.com/hhy4285/it2110-7
 }
 
 footer p {
@@ -140,16 +149,18 @@ footer p {
 
 .form-wrapper-2 {
   width: 330px;
-  padding: 5px;
+  padding: 7px;
+
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.5) inset, 0 1px 0px rgba(255,255,255,.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
   box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
 }
 .form-wrapper-2 input {
   width: 250px;
+  height: 20px;
   padding: 10px 5px;
   float: left;
   font: bold 15px 'Raleway', sans-serif;
@@ -224,102 +235,4 @@ footer p {
 .form-wrapper-2 button::-moz-focus-inner {
   border: 0;
   padding: 0;
-}
-
-/* -- Beginning of slideshow -- */
-* {box-sizing:border-box}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-  padding-top: 30px;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 24px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-  text-shadow: 0px 2px 8px #000000;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
 }
