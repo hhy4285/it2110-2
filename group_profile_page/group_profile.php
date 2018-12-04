@@ -1,8 +1,5 @@
 <?php
-    session_start();
-    if(isset($_SESSION['username'])){
-      $username = $_SESSION['username'];
-    }
+include("resources/header.php");
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +18,7 @@
     <ul id="homebar">
       <li><a href="../index.php"> HOME </a></li>
       <div class="right">
-        <li><a href="user_profile.html"> LOG OUT </a></li>
-        <li><a href="../login/login.php"> LOGIN </a></li>
+        <?php include('../resources/menubar.php'); ?>
       </div>
     </ul>
   </header>
@@ -35,7 +31,7 @@
       <button id="editBtn"><a href="group_profile_edit.php">Edit</a></button>
       <div class="blocks" id="abstract">
         <h2 class="title2">Description:</h2><br>
-        "Group 7" is a project group in Websystem Develoment class. The objective of the project is to create a platform that can connect potential leaders and members for their projects within an established network.
+        "Group 7" is a project group in Websystem Develoment class. The objective of the project is to create a platform that can connect potential leaders and members for their projects within an established network
       </div>
       <div class="border"></div>
       <div id="">

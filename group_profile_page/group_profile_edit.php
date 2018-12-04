@@ -1,3 +1,7 @@
+<?php
+include("resources/header.php");
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,8 +18,7 @@
     <ul id="homebar">
       <li><a href="../index.php"> HOME </a></li>
       <div class="right">
-        <li><a href="user_profile.html"> LOG OUT </a></li>
-        <li><a href="../login/login.php"> LOGIN </a></li>
+        <?php include('../resources/menubar.php'); ?>
       </div>
     </ul>
   </header>

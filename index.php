@@ -10,11 +10,11 @@ include("resources/header.php");
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
     <link type="text/css" rel="stylesheet" href="resources/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    
   </head>
 
   <header>
-    <ul id="homebar">
+<ul id="homebar">
       <li><a href="index.php"> HOME </a></li>
       <div class="right">
         <?php
@@ -30,10 +30,45 @@ include("resources/header.php");
   </header>
 
   <body>
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
 
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="coding.jpeg" style="width:100%">
+        <div class="text">Coders</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="car.jpg" style="width:100%">
+        <div class="text">Car Enthusiasts</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="mic.jpg" style="width:100%">
+        <div class="text">Musicians</div>
+      </div>
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+    <!-- Search -->
     <div id="container">
 
       <div id="search">
+
         <div id="button_box">
           <form class="form-wrapper-2 cf" method="post" action="index.php">
             <input type="text" id="inSearchBox" name="searchtext" placeholder="Search..." required>
@@ -77,28 +112,28 @@ include("resources/header.php");
       </div>
     </div>
     <?php
-	echo '<div id ="footer-container">
+      echo '<div id ="footer-container">
 
-      		<footer>
+              <footer>
 
-	      		<table id="footer-organization">
-						  <tr>	
-						  	<th>
-						  		<a id="git-icon" href="https://github.com/hhy4285/it2110-2.git" target="blank">
-	          			<img src="resources/github-icon.png" alt="Github" />
-	      					</a>
-	      				</th>			
-	      				<th><a href="index.php">Home</a></th>
-	      				<th><a href="user_profile_page/user_profile_view.php">My Profile</a></th>
-	      				<th><a href="group_profile_page/group_profile.php">My Group</a></th>
-						  </tr>
-						</table>
-	      			<p>© Copyright 2018, RPI | Group 7</p>
-      		</footer>
-    	</div>';
-?>
+                <table id="footer-organization">
+                  <tr>	
+                    <th>
+                      <a id="git-icon" href="https://github.com/hhy4285/it2110-2.git" target="blank">
+                      <img src="resources/github-icon.png" alt="Github" />
+                      </a>
+                    </th>			
+                    <th><a href="index.php">Home</a></th>
+                    <th><a href="user_profile_page/user_profile_view.php">My Profile</a></th>
+                    <th><a href="group_profile_page/group_profile.php">My Group</a></th>
+                  </tr>
+                </table>
+                  <p>© Copyright 2018, RPI | Group 7</p>
+              </footer>
+          </div>';
+    ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--<script src="resources/homepage.js"></script>-->
   </body>
-
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="resources/homepage.js"></script> -->
 </html>

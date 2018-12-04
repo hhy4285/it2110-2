@@ -70,9 +70,9 @@
 }
 .input-field {
   vertical-align: bottom;
-  margin-left: 25%;
+  margin-left: 26%;
   margin-top: 5%;
-  width: 50%;
+  width: 45%;
   height: 40px;
   border: 5px solid green;
   border-radius: 5px;
@@ -94,7 +94,7 @@
 }
 #submitBtn {
   margin-top: 3%;
-  margin-left: 63.5%;
+  margin-left: 60.5%;
   margin-bottom: 10%;
   color: #fff;
   background-color: #ffc919;
