@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Group 7</title>
+    <title>View Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link type="text/css" rel="stylesheet" href="../resources/style.css" />
     <link type="text/css" rel="stylesheet" href="resources/style_user_page.css" />
@@ -49,7 +49,12 @@
             <br><br>
 
             <!-- Button to Edit User Page if On Own Page --> 
-            <button type="button" class="view-page-buttons" id="edit-my-profile" onclick="">Edit</button>
+            <button type="button" class="view-page-buttons" id="edit-my-profile" onclick="openEdit();">Edit</button>
+            <script type="text/javascript">
+              function openEdit() {
+                window.open("user_profile.php");
+              }
+            </script>
 
           </th>
           <th style="vertical-align: top;">

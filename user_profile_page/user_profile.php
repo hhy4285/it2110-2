@@ -1,7 +1,9 @@
+<?php include('../resources/header.php'); ?>
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Group 7</title>
+    <title>Edit Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link type="text/css" rel="stylesheet" href="../resources/style.css" />
     <link type="text/css" rel="stylesheet" href="resources/style_user_page.css" />
@@ -50,17 +52,17 @@
 
             <!-- php to load image upload to database -->
             <?php
-              session_start();
-              $_SESSION['UserID'] = 1; // set user id for debugging
+              //session_start();
+              //$_SESSION['UserID'] = 1; // set user id for debugging
               
-              $UserID = $_SESSION['UserID'];
+              $UserName = $_SESSION['username'];
 
               if (count($_FILES) > 0) {
                 if (is_uploaded_file($_FILES['userImage']['tmp_name'])) {
                   //require_once "db.php";
                   $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
                   
-                  $sql = "UPDATE users SET column10 = VALUES('{$imgData}') WHERE UserID='".$UserID."' LIMIT 1";
+                  $sql = "UPDATE users SET column10 = VALUES('{$imgData}') WHERE username='".$UserName."' LIMIT 1";
                   $current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
                   if (isset($current_id)) {
                     header("Location: listImages.php");
@@ -151,15 +153,75 @@
           <th>
             <div id="user-data-form-wrapper">
 
-              <!-- form for user data, should pull current values from database to fill fields -->
+              <?php
+                // connect to database           
+                $dbname = 'websysproject';
+                $user = 'root';
+                $pass = '';             
+                $conn = mysqli_connect("localhost", $user, $pass, $dbname);
+
+                // Check connection
+                if (mysqli_connect_errno()) {
+                  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                }
+
+                $UserName = $_SESSION['username'];
+
+                $sql = "SELECT * FROM users WHERE username='".$UserName."' LIMIT 1";
+                $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+
+                //echo "<table>";
+                while($row = mysqli_fetch_assoc($result)){
+                  $image_data = $row['image'];
+                  //echo '<img src="data:image/png;base64,'.base64_encode( $image_data ).'"/>';
+                  $new_image_attr = "data:image/png;base64,".base64_encode( $image_data );
+                  //document.getElementsById("display-image").setAttribute("scr", "data:image/png;base64,'.base64_encode( $image_data ).'");
+
+                  echo "<script type='text/javascript'>
+                          document.getElementById('display-image').setAttribute('src', '".$new_image_attr."');
+                        </script>";
+                                    
+                  $first_name = $row['FirstName'];
+                  $last_name = $row['LastName'];
+                  $email = $row['Email'];
+                  $skills = $row['Skills'];
+                  $preferred_job = $row['PreferredJob'];
+                  $biography = $row['Biography'];
+                  $PHPVAR = ""; //temp
+                  echo '<!-- form for user data, should pull current values from database to fill fields -->
+                        <form id="user-data-form" method="post" action="user_profile.php">
+                          <!-- name data -->
+                          <textarea class="input-field" type="text" id="firstname" placeholder="First Name" rows="1" maxlength="25" >'.$first_name.'</textarea><br>
+                          <textarea class="input-field" type="text" id="lastname" placeholder="Last Name" rows="1" maxlength="25">'.$last_name.'</textarea><br>
+
+                          <textarea class="input-field" type="text" id="preferredjob" placeholder="Preferred Job" rows="1" maxlength="50">'.$preferred_job.'</textarea><br>
+
+                          <!-- top skills input -->
+                          <textarea class="input-field" value="'.$PHPVAR.'" type="text" id="skill-1" placeholder="Skill 1" rows="1" maxlength="25"></textarea>
+                          <textarea class="input-field" value="'.$PHPVAR.'" type="text" id="skill-2" placeholder="Skill 2" rows="1" maxlength="25"></textarea><br>
+                          <textarea class="input-field" value="'.$PHPVAR.'" type="text" id="skill-3" placeholder="Skill 3" rows="1" maxlength="25"></textarea>
+                          <textarea class="input-field" value="'.$PHPVAR.'" type="text" id="skill-4" placeholder="Skill 4" rows="1" maxlength="25"></textarea><br>
+
+                          <textarea class="large-input-field" type="text" id="contact-email" placeholder="Contact Email" rows="1" maxlength="50">'.$email.'</textarea><br>
+
+                          <textarea class="large-input-field" value="'.$PHPVAR.'" type="text" id="linkdin-link" placeholder="Linkdin Link" rows="1" maxlength="50"></textarea><br>
+
+                          <textarea id="biography" class="input-field" type="text" placeholder="Biography..." rows="8" maxlength="440">'.$biography.'</textarea>
+
+                        </form> ';
+                }              
+              ?>
+              
+              
+              <!--
               <form id="user-data-form" method="post" action="user_profile.php">
-                <!-- name data -->
-                <textarea class="input-field" type="text" id="firstname" placeholder="First Name" rows="1" maxlength="25"></textarea><br>
+                
+                <textarea class="input-field" type="text" id="firstname" placeholder="First Name" rows="1" maxlength="25" ></textarea><br>
                 <textarea class="input-field" type="text" id="lastname" placeholder="Last Name" rows="1" maxlength="25"></textarea><br>
 
                 <textarea class="input-field" type="text" id="preferredjob" placeholder="Preferred Job" rows="1" maxlength="50"></textarea><br>
 
-                <!-- top skills input -->
+                
                 <textarea class="input-field" type="text" id="skill-1" placeholder="Skill 1" rows="1" maxlength="25"></textarea>
                 <textarea class="input-field" type="text" id="skill-2" placeholder="Skill 2" rows="1" maxlength="25"></textarea><br>
                 <textarea class="input-field" type="text" id="skill-3" placeholder="Skill 3" rows="1" maxlength="25"></textarea>
@@ -171,8 +233,8 @@
 
                 <textarea id="biography" class="input-field" type="text" placeholder="Biography..." rows="8" maxlength="440"></textarea>
 
-              </form>
-              
+              </form> 
+              -->
             </div>
 
           </th> 
