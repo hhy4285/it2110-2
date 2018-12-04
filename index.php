@@ -17,8 +17,14 @@ include("resources/header.php");
     <ul id="homebar">
       <li><a href="index.php"> HOME </a></li>
       <div class="right">
-        <?php include('resources/menubar.php'); ?>
-
+        <?php
+          if(isset($_SESSION['username']) && !is_null($_SESSION['username'])){
+            echo "<li><a href=\"login/logout.php\"> LOG OUT </a></li>";
+            echo "<li><a href=\"user_profile_page/user_profile_view.php\"> " . $_SESSION['firstName'] . " </a></li>";
+          } else {
+            echo "<li><a href=\"login/login.php\"> LOGIN </a></li>";
+          }
+        ?>
       </div>
     </ul>
   </header>
@@ -28,20 +34,24 @@ include("resources/header.php");
     <div id="container">
 
       <div id="search">
-
         <div id="button_box">
-          <form class="form-wrapper-2 cf">
+          <form class="form-wrapper-2 cf" method="post" action="index.php">
             <input type="text" id="inSearchBox" placeholder="Search..." required>
-            <button type="submit">Go</button>
+            <button type="submit" name="search">Go</button>
           </form>
         </div>
         <div id="checkboxes">
+          <form method="post" action="index.php">
           <input type="checkbox" id="search_solos" class="checkboxss" name="search_solos" value="Solos">
           <label for="search_solos">Solos</label>
 
           <input type="checkbox" id="search_groups" class="checkboxss" name="search_groups" value="Groups">
           <label for="search_groups">Groups</label>
+          </form>
         </div>
+        <?php
+          if(isset($_POST))
+        ?>
       </div>
 
     </div>
