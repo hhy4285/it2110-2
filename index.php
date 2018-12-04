@@ -40,10 +40,10 @@ include("resources/header.php");
         </div>
         <div id="checkboxes">
           <!--<form method="get" action="index.php">-->
-          <input type="radio" id="search_solos" class="checkboxss" name="search_type" value="Solos">
+          <input type="radio" id="search_solos" class="checkboxss" name="search_type" value="Solos" required>
           <label for="search_solos">Solos</label>
 
-          <input type="radio" id="search_groups" class="checkboxss" name="search_type" value="Groups">
+          <input type="radio" id="search_groups" class="checkboxss" name="search_type" value="Groups" required>
           <label for="search_groups">Groups</label>
 
           <input type="checkbox" id="search_groups" name="search_tags" value="Tags">
