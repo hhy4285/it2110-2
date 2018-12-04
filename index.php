@@ -20,7 +20,7 @@ include("resources/header.php");
         <?php
           if(isset($_SESSION['username']) && !is_null($_SESSION['username'])){
             echo "<li><a href=\"login/logout.php\"> LOG OUT </a></li>";
-            echo "<li><a href=\"user_profile_page/user_profile_view.php\"> " . $_SESSION['firstName'] . " </a></li>";
+            echo "<li><a href=\"user_profile_page/user_profile_view.php?target=" . $_SESSION['username'] . "\"> " . $_SESSION['firstName'] . " </a></li>";
           } else {
             echo "<li><a href=\"login/login.php\"> LOGIN </a></li>";
           }
@@ -67,6 +67,7 @@ include("resources/header.php");
                     echo "<td>" . $row['FirstName'] . "</td>";
                     echo "<td>" . $row['LastName'] . "</td>";
                     echo "<td>" . $row['Email'] . "</td>";
+                    echo "<td><a href=\"user_profile_page/user_profile_view.php?target=" . $row['username'] . "\">Profile</a></td>";
                     echo "</tr>";
                   }
                 } else {
@@ -77,6 +78,7 @@ include("resources/header.php");
                     echo "<td>" . $row['FirstName'] . "</td>";
                     echo "<td>" . $row['LastName'] . "</td>";
                     echo "<td>" . $row['Email'] . "</td>";
+                    echo "<td><a href=\"user_profile_page/user_profile_view.php?target=" . $row['username'] . "\">Profile</a></td>";
                     echo "</tr>";
                   }
                 }
@@ -88,6 +90,7 @@ include("resources/header.php");
                     echo "<tr>";
                     echo "<td>" . $row['GroupName'] . "</td>";
                     echo "<td>" . $row['ContactEmail'] . "</td>";
+                    echo "<td><a href=\"group_profile_page/group_profile.php?target=" . $row['GroupName'] . "\">Profile</a></td>";
                     echo "</tr>";
                   }
                 } else {
@@ -97,6 +100,7 @@ include("resources/header.php");
                     echo "<tr>";
                     echo "<td>" . $row['GroupName'] . "</td>";
                     echo "<td>" . $row['ContactEmail'] . "</td>";
+                    echo "<td><a href=\"group_profile_page/group_profile.php?target=" . $row['GroupName'] . "\">Profile</a></td>";
                     echo "</tr>";
                   }
                 }
@@ -117,10 +121,15 @@ include("resources/header.php");
 	          			<img src="resources/github-icon.png" alt="Github" />
 	      					</a>
 	      				</th>			
-	      				<th><a href="index.php">Home</a></th>
-	      				<th><a href="user_profile_page/user_profile_view.php">My Profile</a></th>
-	      				<th><a href="group_profile_page/group_profile.php">My Group</a></th>
-						  </tr>
+						  <th><a href="index.php">Home</a></th>';
+						  if(isset($_SESSION['username'])){
+							echo'<th><a href="user_profile_page/user_profile_view.php?target=' . $_SESSION['username'] .'">My Profile</a></th>
+	      					<th><a href="group_profile_page/group_profile.php?target=' . $_SESSION['UserID'] . '">My Group</a></th>';
+						  } else {
+                echo'<th><a href="login/login.php">My Profile</a></th>
+	      					<th><a href="login/login.php">My Group</a></th>';
+              }
+						  echo'</tr>
 						</table>
 	      			<p>© Copyright 2018, RPI | Group 7</p>
       		</footer>

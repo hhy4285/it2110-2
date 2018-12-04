@@ -1,5 +1,5 @@
 <?php
-include("resources/header.php");
+include("../resources/header.php");
 ?>
 
 <!DOCTYPE html>
@@ -34,15 +34,16 @@ include("resources/header.php");
 
         <?php
           try {
-            $conn = new PDO('mysql:host=localhost;dbname=websyslab8', $username, $password);
             if ($groups) {
-              $sql = $conn -> prepare("SELECT * FROM `groups`");
+              $sql = $con -> prepare("SELECT * FROM `groups`");
               $sql -> execute();
 
               while ($row = $sql -> fetch(PDO::FETCH_ASSOC)){
                 echo $row["description"];
               }
             }
+          }catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
           }
         ?>
 

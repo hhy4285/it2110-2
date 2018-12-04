@@ -31,7 +31,7 @@ catch (Exception $e) {
                 $user = $_POST["username"];
                 $pass = $_POST["password"];
               
-                $login_stmt = $con->prepare('SELECT username, password, firstName FROM users WHERE username = :username AND password = :password');
+                $login_stmt = $con->prepare('SELECT username, password, firstName, UserID FROM users WHERE username = :username AND password = :password');
                 $login_stmt->execute(array(':username' => $_POST['username'], ':password' => $_POST['password']));
               
                 if($user = $login_stmt->fetch())
@@ -39,6 +39,7 @@ catch (Exception $e) {
                   //echo"You are a validated user.";
                   $_SESSION['username'] = $user['username'];
                   $_SESSION['firstName'] = $user['firstName'];
+                  $_SESSION['UserID'] = $user['UserID'];
                   header("Location: ../index.php");
                   exit;
                 }

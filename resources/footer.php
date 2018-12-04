@@ -1,8 +1,6 @@
 <?php
 	echo '<div id ="footer-container">
-
       		<footer>
-
 	      		<table id="footer-organization">
 						  <tr>	
 						  	<th>
@@ -10,10 +8,15 @@
 	          			<img src="../resources/github-icon.png" alt="Github" />
 	      					</a>
 	      				</th>			
-	      				<th><a href="../index.php">Home</a></th>
-	      				<th><a href="../user_profile_page/user_profile_view.php">My Profile</a></th>
-	      				<th><a href="../group_profile_page/group_profile.php">My Group</a></th>
-						  </tr>
+						  <th><a href="../index.php">Home</a></th>';
+						  if(isset($_SESSION['username'])){
+							echo'<th><a href="../user_profile_page/user_profile_view.php?target=' . $_SESSION['username'] .'">My Profile</a></th>
+	      					<th><a href="../group_profile_page/group_profile.php?target=' . $_SESSION['UserID'] . '">My Group</a></th>';
+						  } else {
+							echo'<th><a href="../login/login.php">My Profile</a></th>
+										  <th><a href="../login/login.php">My Group</a></th>';
+						  }
+						  echo'</tr>
 						</table>
 	      			<p>© Copyright 2018, RPI | Group 7</p>
       		</footer>
