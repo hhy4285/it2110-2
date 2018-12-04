@@ -10,7 +10,6 @@ include("resources/header.php");
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
     <link type="text/css" rel="stylesheet" href="resources/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
-    
   </head>
 
   <header>
@@ -56,9 +55,10 @@ include("resources/header.php");
         <?php
           if(isset($_GET["search"])){
             $term = $_GET["searchtext"];
-            echo "<table style=\"width:30%;\">";
+            echo "<table style=\"text-align: center; width:30%; margin-left: auto; margin-right: auto; margin-top: 2%;\">";
             if(isset($_GET["search_type"])) {
               if($_GET["search_type"] == "Solos"){
+                echo "<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Profile</th></tr>";
                 if(isset($_GET["search_tags"])){
                   $stmt = $con->prepare("SELECT username, FirstName, LastName, Email FROM users WHERE Skill1 LIKE '%{$term}%' OR Skill2 LIKE '%{$term}%' OR Skill3 LIKE '%{$term}%' OR Skill4 LIKE '%{$term}%' GROUP BY username");
                   $stmt->execute();
@@ -67,7 +67,7 @@ include("resources/header.php");
                     echo "<td>" . $row['FirstName'] . "</td>";
                     echo "<td>" . $row['LastName'] . "</td>";
                     echo "<td>" . $row['Email'] . "</td>";
-                    echo "<td><a href=\"user_profile_page/user_profile_view.php?target=" . $row['username'] . "\">Profile</a></td>";
+                    echo "<td><a href=\"user_profile_page/user_profile_view.php?target=" . $row['username'] . "\">Link</a></td>";
                     echo "</tr>";
                   }
                 } else {
@@ -78,11 +78,12 @@ include("resources/header.php");
                     echo "<td>" . $row['FirstName'] . "</td>";
                     echo "<td>" . $row['LastName'] . "</td>";
                     echo "<td>" . $row['Email'] . "</td>";
-                    echo "<td><a href=\"user_profile_page/user_profile_view.php?target=" . $row['username'] . "\">Profile</a></td>";
+                    echo "<td><a href=\"user_profile_page/user_profile_view.php?target=" . $row['username'] . "\">Link</a></td>";
                     echo "</tr>";
                   }
                 }
               } else if ($_GET["search_type"] == "Groups") {
+                echo "<tr><th>Group Name</th><th>Group Email</th><th>Profile</th></tr>";
                 if(isset($_GET["search_tags"])){
                   $stmt = $con->prepare("SELECT GroupName, ContactEmail FROM groups WHERE Skill1 LIKE '%{$term}%' OR Skill2 LIKE '%{$term}%' OR Skill3 LIKE '%{$term}%' OR Skill4 LIKE '%{$term}%' GROUP BY GroupName");
                   $stmt->execute();
@@ -90,7 +91,7 @@ include("resources/header.php");
                     echo "<tr>";
                     echo "<td>" . $row['GroupName'] . "</td>";
                     echo "<td>" . $row['ContactEmail'] . "</td>";
-                    echo "<td><a href=\"group_profile_page/group_profile.php?target=" . $row['GroupName'] . "\">Profile</a></td>";
+                    echo "<td><a href=\"group_profile_page/group_profile.php?target=" . $row['GroupName'] . "\">Link</a></td>";
                     echo "</tr>";
                   }
                 } else {
@@ -100,7 +101,7 @@ include("resources/header.php");
                     echo "<tr>";
                     echo "<td>" . $row['GroupName'] . "</td>";
                     echo "<td>" . $row['ContactEmail'] . "</td>";
-                    echo "<td><a href=\"group_profile_page/group_profile.php?target=" . $row['GroupName'] . "\">Profile</a></td>";
+                    echo "<td><a href=\"group_profile_page/group_profile.php?target=" . $row['GroupName'] . "\">Link</a></td>";
                     echo "</tr>";
                   }
                 }

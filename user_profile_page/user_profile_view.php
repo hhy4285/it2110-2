@@ -49,13 +49,16 @@
             <br><br>
 
             <!-- Button to Edit User Page if On Own Page --> 
-            <button type="button" class="view-page-buttons" id="edit-my-profile" onclick="openEdit();">Edit</button>
+            <?php
+            if($_GET['target'] == $_SESSION['username'])
+            echo
+            '<button type="button" class="view-page-buttons" id="edit-my-profile" onclick="openEdit();">Edit</button>
             <script type="text/javascript">
               function openEdit() {
                 window.open("user_profile.php");
               }
-            </script>
-
+            </script>';
+              ?>
           </th>
           <th style="vertical-align: top;">
             <div id="user-data-wrapper">
@@ -72,7 +75,8 @@
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
                 }
 
-                $UserName = $_SESSION['username'];
+                $UserName = $_GET['target'];
+                //$UserName = $_SESSION['username'];
 
                 $sql = "SELECT * FROM users WHERE username='".$UserName."' LIMIT 1";
                 $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
@@ -114,8 +118,6 @@
           </th> 
         </tr>
       </table>
-
-      
     </div>
     <?php include('../resources/footer.php'); ?>
   </body>
