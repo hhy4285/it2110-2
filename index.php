@@ -10,11 +10,11 @@ include("resources/header.php");
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
     <link type="text/css" rel="stylesheet" href="resources/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    
   </head>
 
   <header>
-    <ul id="homebar">
+<ul id="homebar">
       <li><a href="index.php"> HOME </a></li>
       <div class="right">
         <?php
@@ -32,6 +32,7 @@ include("resources/header.php");
   <body>
     <div id="container">
       <div id="search">
+
         <div id="button_box">
           <form class="form-wrapper-2 cf" method="get" action="index.php">
             <input type="text" id="inSearchBox" name="searchtext" placeholder="Search..." required>
@@ -126,7 +127,7 @@ include("resources/header.php");
     	</div>';
 ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--<script src="resources/homepage.js"></script>-->
   </body>
-
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="resources/homepage.js"></script> -->
 </html>

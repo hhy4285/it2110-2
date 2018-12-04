@@ -1,3 +1,7 @@
+<?php
+include("resources/header.php");
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,8 +18,7 @@
     <ul id="homebar">
       <li><a href="../index.php"> HOME </a></li>
       <div class="right">
-        <li><a href="user_profile.html"> LOG OUT </a></li>
-        <li><a href="../login/login.php"> LOGIN </a></li>
+        <?php include('../resources/menubar.php'); ?>
       </div>
     </ul>
   </header>
@@ -25,7 +28,7 @@
     <div id="profile_block">
       <h1 id="groupName">Group 7</h1>
       <form id="user-data-form" method="post" action="user_profile.php">
-        <textarea class="input-field" type="text" id="description" placeholder="Add description..." rows="1" maxlength="150"></textarea><br>
+        <textarea class="input-field" type="text" id="description" placeholder="Add new description..." rows="1" maxlength="150"></textarea><br>
 
         <textarea class="input-field" type="text" id="groupMembers" placeholder="Add members..." rows="1" maxlength="25"></textarea>
         <label for="user-data-form" type="button" class="addButton" id="addMembers" value="Save" name="save" onclick="">ADD</label><br>
