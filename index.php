@@ -8,10 +8,10 @@ include("resources/header.php");
     <title>Group 7</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
-    <link type="text/css" rel="stylesheet" href="resources/style.css"/>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="resources/homepage.js"></script>
+    <script src="homepage.js"></script>
   </head>
 
   <header>
