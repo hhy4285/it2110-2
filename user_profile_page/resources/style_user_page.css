@@ -113,29 +113,6 @@ ul#all-groups {
 	width: 405px;
 }
 
-#resumeButton {
-	font-family: 'Suez One', serif;
-  display: inline-block;
-  padding: 8px;
-  width: 80%;
-  cursor: pointer;
-  text-align: center;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 9px green;
-}
-
-#resumeButton:hover {background-color: #3e8e41}
-
-#resumeButton:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
 #buttonTable {
 	margin: auto;
 	width: 85%;
@@ -227,14 +204,62 @@ ul#all-groups {
 #user-data-wrapper ul {
 	list-style: none;
 	padding-left: 0;
+
 }
 
 #user-data-wrapper li {
 	margin-bottom: 20px;
+	line-height: 1.6;
 }
 
 #user-data-wrapper h3 {
 	font-family: 'Suez One', serif;
   font-size: 25pt;
   margin-top: 0;
+  margin-bottom: 20px;
 }
+
+/* -- View Profile Page Buttons --------------- */
+.view-page-buttons {
+	font-family: 'Suez One', serif;
+  display: inline-block;
+  padding: 8px;
+  width: 80%;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.view-page-buttons:active {
+  transform: translateY(4px);
+}
+
+#open-linkdin {
+	color: #fff;
+  background-color: #0085cc;
+  box-shadow: 0 9px #004266;
+}
+
+#open-linkdin:hover {background-color: #006399}
+
+#open-linkdin:active {
+  background-color: #006399;
+  box-shadow: 0 5px #666;
+}
+
+#edit-my-profile {
+	color: #fff;
+  background-color: #ffc919;
+  box-shadow: 0 9px #bc930b;
+}
+
+#edit-my-profile:hover {background-color: #d6a60a}
+
+#edit-my-profile:active {
+  background-color: #d6a60a;
+  box-shadow: 0 5px #666;
+}
+
+

@@ -39,46 +39,17 @@
               </form>
             </div><br>
 
-            <input id="input-image" type="file" onchange="readURL(this);" />
+            <!-- Button to Open Linkdin Link --> 
+            <button type="button" class="view-page-buttons" id="open-linkdin" onclick="openLinkdin();">Linkdin</button>
+            <script type="text/javascript">
+              function openLinkdin() {
+                window.open("https://www.linkedin.com/");
+              }
+            </script>
+            <br><br>
 
-            <br>
-            <br>
-
-            <table id="buttonTable">
-              <tr>
-                <th>
-                  <!-- button to clear current form data to form -->
-                  <script type="text/javascript">
-                    function clearFields() {
-                      document.getElementById("firstname").value = "";
-                      document.getElementById("lastname").value = "";
-                      document.getElementById("preferredjob").value = "";
-                      document.getElementById("skill-1").value = "";
-                      document.getElementById("skill-2").value = "";
-                      document.getElementById("skill-3").value = "";
-                      document.getElementById("skill-4").value = "";
-                      document.getElementById("contact-email").value = "";
-                      document.getElementById("biography").value = "";
-                    };
-                  </script>
-                  <button type="button" class="controleButton" id="clearButton" onclick="clearFields();">Clear</button>
-                </th>
-                <th>
-                  <!-- button to save current form data to database -->
-                  <label for="user-data-form" type="button" class="controleButton" id="saveButton" value="Save" name="save" onclick="alert('Current Data Saved!')">Save</label>
-                </th>
-              </tr>
-              <tr>
-                <th>
-                  <!-- button to delete user from database -->
-                  <button type="button" class="controleButton" id="deleteButton" onclick="alert('Are you sure you want to completely delete your account? All of your account data will be erased and unrecoverable.')">Delete</button>                  
-                </th>
-                <th>
-                  <!-- button to exit out of edit mode and view the page normaly -->
-                  <button type="button" class="controleButton" id="viewButton" onclick="window.location = 'user_profile_view.php';">View</button>               
-                </th>
-              </tr>
-            </table>
+            <!-- Button to Edit User Page if On Own Page --> 
+            <button type="button" class="view-page-buttons" id="edit-my-profile" onclick="">Edit</button>
 
           </th>
           <th style="vertical-align: top;">
@@ -114,7 +85,7 @@
                           <li>Job: ".$preferred_job."</li>
                           <li>Contact: ".$email."</li>
                           <li>Skills: ".$skills."</li>
-                          <li>Biography: ".$biography."</li>
+                          <li style='white-space: normal;'>Biography: ".$biography."</li>
                         </ul>";   
                 }
                 //echo "</table>";
