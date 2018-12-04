@@ -47,17 +47,48 @@ catch (Exception $e) {
               }
               ?>
               <input type="text" id="username" name = "username" placeholder="Enter Username">
-              <input type="text" id="password" name = "password" placeholder="Enter Password">
+              <input type="password" id="password" name = "password" placeholder="Enter Password">
               <input type="submit" class="loginSignupButtons" name="Login" value="Sign In">
 
               <h2>Sign up</h2>
-              <input type="text" id="username" placeholder="Enter Username">
-              <input type="text" id="email" placeholder="Enter Email">
-              <input type="text" id="password" placeholder="Enter Password">
-              <input type="text" id="password2" placeholder="Re-enter Password">
-              <input type="text" id="firstName" placeholder="Enter your first name">
-              <input type="text" id="lastName" placeholder="Enter your last name">
+              <?php
+              if(isset($_POST['SignUp'])){              
+              // Grab User submitted information
+              
+                $user = $_POST["Nuser"];
+                $pass1 = $_POST["Npass1"];
+                $pass2 = $_POST["Npass2"];
+                $email = $_POST["Nemail"];
+                $fname = $_POST["Nfirstname"];
+                $lname = $_POST["Nlastname"];
+                
+                $sign_stmt = $con->prepare('SELECT username FROM users WHERE username = :username');
+                $sign_stmt->execute(array(':username' => $_POST['Nuser']));
+                if($user == $sign_stmt->fetch())
+                {
+                  echo "<p style=\"text-align: center;\">Sorry, the username is already taken, Please try again.</p>";
+                  //echo"<script>alert('The username is already taken')</script>";
+                } else if ($pass1 != $pass2) {
+                  echo "<p style=\"text-align: center;\">Sorry, the passwords do not match, Please try again.</p>";
+                  //echo("<script>alert('The passwords do not match')</script>");
+                } else {
+                  $sign_stmt = $con->prepare("INSERT INTO `users` (username, `password`, email, FirstName, LastName) VALUES (:user, :pass, :email, :firstname, :lastname)");
+                  $sign_stmt->execute(array(':user' => $user, ':pass' => $pass1, ':email' => $email, ':firstname' => $fname, ':lastname' => $lname));
+                  $_SESSION['username'] = $user;
+                  $_SESSION['firstName'] = $fname;
+                  header("Location: ../index.php");
+                  exit;
+                }
+              }
+              ?>
+              <input type="text" id="username" name="Nuser" placeholder="Enter Username">
+              <input type="text" id="email" name="Nemail" placeholder="Enter Email">
+              <input type="password" id="password" name="Npass1" placeholder="Enter Password">
+              <input type="password" id="password2" name="Npass2" placeholder="Re-enter Password">
+              <input type="text" id="firstName" name="Nfirstname" placeholder="Enter your first name">
+              <input type="text" id="lastName" name="Nlastname" placeholder="Enter your last name">
               <input type="submit" class="loginSignupButtons" name="SignUp" value="Sign Up">
+              
           </form>
         </div>
     </body>
