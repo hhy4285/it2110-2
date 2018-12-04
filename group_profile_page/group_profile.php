@@ -31,6 +31,21 @@ include("resources/header.php");
       <button id="editBtn"><a href="group_profile_edit.php">Edit</a></button>
       <div class="blocks" id="abstract">
         <h2 class="title2">Description:</h2><br>
+
+        <?php
+          try {
+            $conn = new PDO('mysql:host=localhost;dbname=websyslab8', $username, $password);
+            if ($groups) {
+              $sql = $conn -> prepare("SELECT * FROM `groups`");
+              $sql -> execute();
+
+              while ($row = $sql -> fetch(PDO::FETCH_ASSOC)){
+                echo $row["description"];
+              }
+            }
+          }
+        ?>
+
         "Group 7" is a project group in Websystem Develoment class. The objective of the project is to create a platform that can connect potential leaders and members for their projects within an established network
       </div>
       <div class="border"></div>
