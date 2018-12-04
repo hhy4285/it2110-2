@@ -91,14 +91,18 @@
                   $first_name = $row['FirstName'];
                   $last_name = $row['LastName'];
                   $email = $row['Email'];
-                  $skills = $row['Skills'];
+                  $skill_1 = $row['Skill1'];
+                  $skill_2 = $row['Skill2'];
+                  $skill_3 = $row['Skill3'];
+                  $skill_4 = $row['Skill4'];
+                  $linkdin = $row['LinkdinLink'];
                   $preferred_job = $row['PreferredJob'];
                   $biography = $row['Biography'];
                   echo "<h3>".$first_name." ".$last_name."</h3>
                         <ul style=''>
                           <li>Job: ".$preferred_job."</li>
                           <li>Contact: ".$email."</li>
-                          <li>Skills: ".$skills."</li>
+                          <li>Skills: ".$skill_1."; ".$skill_2."; ".$skill_3."; ".$skill_4."</li>
                           <li style='white-space: normal;'>Biography: ".$biography."</li>
                         </ul>";   
                 }
