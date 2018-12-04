@@ -117,7 +117,7 @@
                 <br>
 
                 <input id="input-image" name="userImage" type="file" onchange="readURL(this);" />
-                <label id="choose-file-button" for="input-image">Choose a Picture</label>
+                <button style="visibility: hidden;" ><label id="choose-file-button" for="input-image" style="visibility: visible;">Choose a Picture</label></button>
                 <script type="text/javascript">
                   function readURL(input) {
                     if (input.files && input.files[0]) {
@@ -169,15 +169,19 @@
                   </script>
                   <button type="button" class="controleButton" id="clearButton" onclick="clearFields();">Clear</button>
                 </th>
+                <!--
                 <th>
-                  <!-- button to save current form data to database -->
-                  <label for="submit-user-data" type="button" class="controleButton" id="saveButton" value="Save" name="save" onclick="submitForms();">Save</label>
+        
+                  <button style="visibility: hidden;"><label for="submit-user-data" type="button" class="controleButton" id="saveButton" value="Save" name="save" onclick="submitForms();" style="visibility: visible;">Save</label></button>
                   <script type="text/javascript">
+                    /*
                     function submitForms() {
                       document.getElementById("image-upload-form").submit();
                     };
+                    */
                   </script>
                 </th>
+            -->
               </tr>
               <tr>
                 <th>
@@ -253,7 +257,13 @@
                           <textarea name="linkdinlink" class="large-input-field" type="text" id="linkdin-link" placeholder="Linkdin Link" rows="1" maxlength="50">'.$linkdin.'</textarea><br>
 
                           <textarea name="biography" id="biography" class="input-field" type="text" placeholder="Biography..." rows="8" maxlength="440">'.$biography.'</textarea>
-                          <input type="submit" id="submit-user-data" value="Save" name="save" style="visibility: hidden;" />
+                          
+                          <br>
+
+
+                          <!-- button to save current form data to database -->
+                          <button for="submit-user-data" type="submit" class="controleButton" id="saveButton" value="Save" name="save" onclick="submitForms();" style="visibility: visible;">Save</button>
+
                         </form> ';
                 }              
               ?>

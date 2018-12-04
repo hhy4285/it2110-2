@@ -61,7 +61,8 @@ h1 {
   display: inline-block;
   cursor: pointer; /* "hand" cursor */
   padding: 8px;
-  width: 80%;
+  width: 118px;
+  margin-left: 4px;
   text-align: center;
   outline: none;
   color: #fff;
@@ -166,6 +167,7 @@ ul#all-groups {
   color: #fff;
   background-color: #4CAF50;
   box-shadow: 0 9px green;
+  margin-left: 81.8%;
 }
 
 #saveButton:hover {background-color: #3e8e41}
