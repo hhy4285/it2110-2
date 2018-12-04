@@ -40,26 +40,22 @@
             </div><br>
 
             <!-- Button to Open Linkdin Link --> 
-            <button type="button" class="view-page-buttons" id="open-linkdin" onclick="openLinkdin();">Linkdin</button>
-            <script type="text/javascript">
-              function openLinkdin() {
-                window.open("https://www.linkedin.com/");
-              }
-            </script>
+            <button type="button" class="view-page-buttons" id="open-linkdin" onclick="window.open('https://www.linkedin.com/');">Linkdin</button>
+
             <br><br>
 
             <!-- Button to Edit User Page if On Own Page --> 
             <?php
             if($_GET['target'] == $_SESSION['username'])
             echo
-            '<button type="button" class="view-page-buttons" id="edit-my-profile" onclick="openEdit();">Edit</button>
-            <script type="text/javascript">
-              function openEdit() {
-                window.open("user_profile.php");
-              }
-            </script>';
+              '<button type="button" class="view-page-buttons" id="edit-my-profile" onclick="openEdit();">Edit</button>
+              <script type="text/javascript">
+                function openEdit() {
+                  window.open("user_profile.php");
+                }
+                </script>';
               ?>
-          </th>
+          </th>         
           <th style="vertical-align: top;">
             <div id="user-data-wrapper">
               <!-- get this user data from database -->
@@ -80,6 +76,12 @@
 
                 $sql = "SELECT * FROM users WHERE username='".$UserName."' LIMIT 1";
                 $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                /*
+                // populate linkdin button 
+                $linkdin_sql = "SELECT LinkdinLink FROM users WHERE username='".$UserName."' LIMIT 1";
+                $linkdin_link = mysqli_query($conn, $linkdin_sql) or die (mysqli_error($conn));
+                echo $linkdin_link;
+                */
 
                 //echo "<table>";
                 while($row = mysqli_fetch_assoc($result)){
@@ -91,6 +93,14 @@
                   echo "<script type='text/javascript'>
                           document.getElementById('display-image').setAttribute('src', '".$new_image_attr."');
                         </script>";
+                  
+                  $linkdin = $row['LinkdinLink'];
+                  $js_code = 'window.open("'.$linkdin.'");';
+                  echo "
+                    <script type='text/javascript'>
+                      document.getElementById('open-linkdin').setAttribute('onclick', '".$js_code."');
+                    </script>
+                  ";
                                     
                   $first_name = $row['FirstName'];
                   $last_name = $row['LastName'];
@@ -99,7 +109,7 @@
                   $skill_2 = $row['Skill2'];
                   $skill_3 = $row['Skill3'];
                   $skill_4 = $row['Skill4'];
-                  $linkdin = $row['LinkdinLink'];
+                  
                   $preferred_job = $row['PreferredJob'];
                   $biography = $row['Biography'];
                   echo "<h3>".$first_name." ".$last_name."</h3>
