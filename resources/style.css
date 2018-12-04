@@ -72,7 +72,7 @@ h2 {
   vertical-align: top;
 }
 #container {
-  min-height: calc(100vh - 28vh);
+  min-height: calc(100vh - 26vh);
 }
 /* -- Footer CSS ------------------------------------- */
 footer {
