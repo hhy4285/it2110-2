@@ -124,11 +124,14 @@ include("resources/header.php");
 	      				</th>			
 						  <th><a href="index.php">Home</a></th>';
 						  if(isset($_SESSION['username'])){
-							echo'<th><a href="user_profile_page/user_profile_view.php?target=' . $_SESSION['username'] .'">My Profile</a></th>
-	      					<th><a href="group_profile_page/group_profile.php?target=' . $_SESSION['UserID'] . '">My Group</a></th>';
+							echo'<th><a href="user_profile_page/user_profile_view.php?target=' . $_SESSION['username'] .'">My Profile</a></th>';
 						  } else {
-                echo'<th><a href="login/login.php">My Profile</a></th>
-	      					<th><a href="login/login.php">My Group</a></th>';
+                echo'<th><a href="login/login.php">My Profile</a></th>';
+              }
+              if(is_null($dbid)){
+                echo '<th><a href="#">My Group</a></th>';
+              } else {
+                echo '<th><a href="group_profile_page/group_profile.php?target=' . $dbid . '">My Group</a></th>';
               }
 						  echo'</tr>
 						</table>
