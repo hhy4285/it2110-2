@@ -81,8 +81,8 @@
             </table>
 
           </th>
-          <th>
-            <div id="user-data-form-wrapper">
+          <th style="vertical-align: top;">
+            <div id="user-data-wrapper">
               <!-- get this user data from database -->
               <?php    
                 // connect to database           
@@ -96,9 +96,9 @@
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
                 }
 
-                $UserID = $_SESSION['UserID'];
+                $UserName = $_SESSION['username'];
 
-                $sql = "SELECT * FROM users WHERE UserID='".$UserID."' LIMIT 1";
+                $sql = "SELECT * FROM users WHERE username='".$UserName."' LIMIT 1";
                 $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 
                 //echo "<table>";

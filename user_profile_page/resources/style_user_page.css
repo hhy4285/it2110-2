@@ -219,5 +219,22 @@ ul#all-groups {
 /* -- View Profile Page CSS --------------- */
 
 #user-data-wrapper {
+	font-family: 'Josefin Sans', sans-serif;
 	text-align: left;
+	padding-left: 20px;
+}
+
+#user-data-wrapper ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+#user-data-wrapper li {
+	margin-bottom: 20px;
+}
+
+#user-data-wrapper h3 {
+	font-family: 'Suez One', serif;
+  font-size: 25pt;
+  margin-top: 0;
 }
