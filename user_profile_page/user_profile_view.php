@@ -74,6 +74,15 @@
 
                 //echo "<table>";
                 while($row = mysqli_fetch_assoc($result)){
+                  $image_data = $row['image'];
+                  //echo '<img src="data:image/png;base64,'.base64_encode( $image_data ).'"/>';
+                  $new_image_attr = "data:image/png;base64,".base64_encode( $image_data );
+                  //document.getElementsById("display-image").setAttribute("scr", "data:image/png;base64,'.base64_encode( $image_data ).'");
+
+                  echo "<script type='text/javascript'>
+                          document.getElementById('display-image').setAttribute('src', '".$new_image_attr."');
+                        </script>";
+                                    
                   $first_name = $row['FirstName'];
                   $last_name = $row['LastName'];
                   $email = $row['Email'];
