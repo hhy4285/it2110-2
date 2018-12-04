@@ -184,10 +184,14 @@
                   $first_name = $row['FirstName'];
                   $last_name = $row['LastName'];
                   $email = $row['Email'];
-                  $skills = $row['Skills'];
+                  $skill_1 = $row['Skill1'];
+                  $skill_2 = $row['Skill2'];
+                  $skill_3 = $row['Skill3'];
+                  $skill_4 = $row['Skill4'];
+                  $linkdin = $row['LinkdinLink'];
                   $preferred_job = $row['PreferredJob'];
                   $biography = $row['Biography'];
-                  $PHPVAR = ""; //temp
+
                   echo '<!-- form for user data, should pull current values from database to fill fields -->
                         <form id="user-data-form" method="post" action="user_profile.php">
                           <!-- name data -->
@@ -197,14 +201,14 @@
                           <textarea class="input-field" type="text" id="preferredjob" placeholder="Preferred Job" rows="1" maxlength="50">'.$preferred_job.'</textarea><br>
 
                           <!-- top skills input -->
-                          <textarea class="input-field" value="'.$PHPVAR.'" type="text" id="skill-1" placeholder="Skill 1" rows="1" maxlength="25"></textarea>
-                          <textarea class="input-field" value="'.$PHPVAR.'" type="text" id="skill-2" placeholder="Skill 2" rows="1" maxlength="25"></textarea><br>
-                          <textarea class="input-field" value="'.$PHPVAR.'" type="text" id="skill-3" placeholder="Skill 3" rows="1" maxlength="25"></textarea>
-                          <textarea class="input-field" value="'.$PHPVAR.'" type="text" id="skill-4" placeholder="Skill 4" rows="1" maxlength="25"></textarea><br>
+                          <textarea class="input-field" value="'.$skill_1.'" type="text" id="skill-1" placeholder="Skill 1" rows="1" maxlength="25"></textarea>
+                          <textarea class="input-field" value="'.$skill_2.'" type="text" id="skill-2" placeholder="Skill 2" rows="1" maxlength="25"></textarea><br>
+                          <textarea class="input-field" value="'.$skill_3.'" type="text" id="skill-3" placeholder="Skill 3" rows="1" maxlength="25"></textarea>
+                          <textarea class="input-field" value="'.$skill_4.'" type="text" id="skill-4" placeholder="Skill 4" rows="1" maxlength="25"></textarea><br>
 
                           <textarea class="large-input-field" type="text" id="contact-email" placeholder="Contact Email" rows="1" maxlength="50">'.$email.'</textarea><br>
 
-                          <textarea class="large-input-field" value="'.$PHPVAR.'" type="text" id="linkdin-link" placeholder="Linkdin Link" rows="1" maxlength="50"></textarea><br>
+                          <textarea class="large-input-field" value="'.$linkdin.'" type="text" id="linkdin-link" placeholder="Linkdin Link" rows="1" maxlength="50"></textarea><br>
 
                           <textarea id="biography" class="input-field" type="text" placeholder="Biography..." rows="8" maxlength="440">'.$biography.'</textarea>
 
