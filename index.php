@@ -30,18 +30,16 @@ include("resources/header.php");
   </header>
 
   <body>
-
     <div id="container">
-
       <div id="search">
         <div id="button_box">
-          <form class="form-wrapper-2 cf" method="post" action="index.php">
+          <form class="form-wrapper-2 cf" method="get" action="index.php">
             <input type="text" id="inSearchBox" name="searchtext" placeholder="Search..." required>
             <button type="submit" name="search">Go</button>
-          </form>
+          
         </div>
         <div id="checkboxes">
-          <form method="post" action="index.php">
+          <!--<form method="get" action="index.php">-->
           <input type="radio" id="search_solos" class="checkboxss" name="search_type" value="Solos">
           <label for="search_solos">Solos</label>
 
@@ -55,32 +53,62 @@ include("resources/header.php");
       </div>
       <div id="results">
         <?php
-          if(isset($_POST["search"])){
-            $term = $_POST["searchtext"];
-            if(isset($_POST["search_type"])) {
-              if($_POST["search_type"] == "Solos"){
-                if(isset($_POST["search_tags"])){
-                  $stmt = $con->prepare();
+          if(isset($_GET["search"])){
+            $term = $_GET["searchtext"];
+            echo "<table style=\"width:30%;\">";
+            if(isset($_GET["search_type"])) {
+              if($_GET["search_type"] == "Solos"){
+                if(isset($_GET["search_tags"])){
+                  $stmt = $con->prepare("SELECT username, FirstName, LastName, Email FROM users WHERE Skill1 LIKE '%{$term}%' OR Skill2 LIKE '%{$term}%' OR Skill3 LIKE '%{$term}%' OR Skill4 LIKE '%{$term}%' GROUP BY username");
+                  $stmt->execute();
+                  while ($row = $stmt->fetch()) {
+                    echo "<tr>";
+                    echo "<td>" . $row['FirstName'] . "</td>";
+                    echo "<td>" . $row['LastName'] . "</td>";
+                    echo "<td>" . $row['Email'] . "</td>";
+                    echo "</tr>";
+                  }
                 } else {
-                  $stmt = $con->prepare();
+                  $stmt = $con->prepare("SELECT username, FirstName, LastName, Email FROM users WHERE username LIKE '%{$term}%' OR FirstName LIKE '%{$term}%' OR LastName LIKE '%{$term}%' OR Email LIKE '%{$term}%' GROUP BY username");
+                  $stmt->execute();
+                  while ($row = $stmt->fetch()) {
+                    echo "<tr>";
+                    echo "<td>" . $row['FirstName'] . "</td>";
+                    echo "<td>" . $row['LastName'] . "</td>";
+                    echo "<td>" . $row['Email'] . "</td>";
+                    echo "</tr>";
+                  }
                 }
-              } else if ($_POST["search_type"] == "Groups") {
-                if(isset($_POST["search_tags"])){
-                  $stmt = $con->prepare();
+              } else if ($_GET["search_type"] == "Groups") {
+                if(isset($_GET["search_tags"])){
+                  $stmt = $con->prepare("SELECT GroupName, ContactEmail FROM groups WHERE Skill1 LIKE '%{$term}%' OR Skill2 LIKE '%{$term}%' OR Skill3 LIKE '%{$term}%' OR Skill4 LIKE '%{$term}%' GROUP BY GroupName");
+                  $stmt->execute();
+                  while ($row = $stmt->fetch()) {
+                    echo "<tr>";
+                    echo "<td>" . $row['GroupName'] . "</td>";
+                    echo "<td>" . $row['ContactEmail'] . "</td>";
+                    echo "</tr>";
+                  }
                 } else {
-                  $stmt = $con->prepare();
+                  $stmt = $con->prepare("SELECT GroupName, ContactEmail FROM groups WHERE GroupName LIKE '%{$term}%' OR ContactEmail LIKE '%{$term}%' OR `Description` LIKE '%{$term}%' GROUP BY GroupName");
+                  $stmt->execute();
+                  while ($row = $stmt->fetch()) {
+                    echo "<tr>";
+                    echo "<td>" . $row['GroupName'] . "</td>";
+                    echo "<td>" . $row['ContactEmail'] . "</td>";
+                    echo "</tr>";
+                  }
                 }
               }
             }
+            echo "</table>";
           }
         ?>
       </div>
     </div>
     <?php
 	echo '<div id ="footer-container">
-
       		<footer>
-
 	      		<table id="footer-organization">
 						  <tr>	
 						  	<th>
