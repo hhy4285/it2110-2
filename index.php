@@ -36,24 +36,45 @@ include("resources/header.php");
       <div id="search">
         <div id="button_box">
           <form class="form-wrapper-2 cf" method="post" action="index.php">
-            <input type="text" id="inSearchBox" placeholder="Search..." required>
+            <input type="text" id="inSearchBox" name="searchtext" placeholder="Search..." required>
             <button type="submit" name="search">Go</button>
           </form>
         </div>
         <div id="checkboxes">
           <form method="post" action="index.php">
-          <input type="checkbox" id="search_solos" class="checkboxss" name="search_solos" value="Solos">
+          <input type="radio" id="search_solos" class="checkboxss" name="search_type" value="Solos">
           <label for="search_solos">Solos</label>
 
-          <input type="checkbox" id="search_groups" class="checkboxss" name="search_groups" value="Groups">
+          <input type="radio" id="search_groups" class="checkboxss" name="search_type" value="Groups">
           <label for="search_groups">Groups</label>
+
+          <input type="checkbox" id="search_groups" name="search_tags" value="Tags">
+          <label for="search_tags">Tags</label>
           </form>
         </div>
+      </div>
+      <div id="results">
         <?php
-          if(isset($_POST))
+          if(isset($_POST["search"])){
+            $term = $_POST["searchtext"];
+            if(isset($_POST["search_type"])) {
+              if($_POST["search_type"] == "Solos"){
+                if(isset($_POST["search_tags"])){
+                  $stmt = $con->prepare();
+                } else {
+                  $stmt = $con->prepare();
+                }
+              } else if ($_POST["search_type"] == "Groups") {
+                if(isset($_POST["search_tags"])){
+                  $stmt = $con->prepare();
+                } else {
+                  $stmt = $con->prepare();
+                }
+              }
+            }
+          }
         ?>
       </div>
-
     </div>
     <?php
 	echo '<div id ="footer-container">
@@ -77,7 +98,7 @@ include("resources/header.php");
     	</div>';
 ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="resources/homepage.js"></script>
+  <!--<script src="resources/homepage.js"></script>-->
   </body>
 
 </html>
