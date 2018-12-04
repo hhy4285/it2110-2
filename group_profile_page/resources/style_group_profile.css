@@ -6,9 +6,12 @@
   padding-left: 10%;
   padding-top: 2.5%;
 }
+#container {
+
+  min-height: calc(100vh - 26vh);
+}
 #profile_block {
   width: 50%;
-  height: 55%;
   margin-left: 25%;
   margin-top: 5%;
   margin-bottom: 4%;
@@ -48,4 +51,38 @@
   display: inline-block;
 }
 #projectProgress {
+}
+.input-field {
+  vertical-align: bottom;
+  margin-left: 25%;
+  margin-top: 5%;
+  width: 50%;
+  height: 40px;
+  border: 5px solid green;
+  border-radius: 5px;
+}
+.addButton {
+  vertical-align: bottom;
+  color: #fff;
+  background-color: #4CAF50;
+  box-shadow: 0 5px green;
+  font-family: 'Suez One', serif;
+  display: inline-block;
+  padding: 8px;
+  width: 45px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 6px;
+}
+#submitBtn {
+  margin-top: 3%;
+  margin-left: 63.5%;
+  margin-bottom: 10%;
+  color: #fff;
+  background-color: #ffc919;
+  box-shadow: 0 6px #bc930b;
+  width: 80px;
 }
