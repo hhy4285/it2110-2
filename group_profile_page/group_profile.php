@@ -26,13 +26,13 @@ include("../resources/header.php");
   <body>
     <div id="container">
     <div id="profile_block">
-      <h1 id="groupName">Group 7</h1>
+      <h1 id="groupName">TaskFuse</h1>
       <button id="joinRequest" type="submit">Join Request</button>
       <button id="editBtn"><a href="group_profile_edit.php">Edit</a></button>
       <div class="blocks" id="abstract">
         <h2 class="title2">Description:</h2><br>
 
-        <?php
+        <!--<?php
           try {
             if ($groups) {
               $sql = $con -> prepare("SELECT * FROM `groups`");
@@ -45,9 +45,9 @@ include("../resources/header.php");
           }catch (Exception $e) {
             echo "Error: " . $e->getMessage();
           }
-        ?>
+        ?>-->
 
-        "Group 7" is a project group in Websystem Develoment class. The objective of the project is to create a platform that can connect potential leaders and members for their projects within an established network
+        TaskFuse is a project group in Websystem Develoment class. The objective of the project is to create a platform that can connect potential leaders and members for their projects within an established network
       </div>
       <div class="border"></div>
       <div id="">

@@ -84,17 +84,17 @@
   box-shadow: 0 5px green;
   font-family: 'Suez One', serif;
   display: inline-block;
-  padding: 8px;
+  padding: 5px;
   cursor: pointer;
   text-align: center;
   outline: none;
   border: none;
   border-radius: 5px;
-  margin-bottom: 6px;
+  margin-bottom: 3px;
 }
 #submitBtn {
   margin-top: 3%;
-  margin-left: 60.5%;
+  margin-left: 59.5%;
   margin-bottom: 10%;
   color: #fff;
   background-color: #ffc919;

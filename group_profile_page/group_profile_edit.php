@@ -26,8 +26,10 @@ include("resources/header.php");
   <body>
     <div id="cotainer">
     <div id="profile_block">
-      <h1 id="groupName">Group 7</h1>
+      <h1 id="groupName">TaskFuse</h1>
       <form id="user-data-form" method="post" action="user_profile.php">
+        <textarea class="input-field" type="text" id="groupName2" placeholder="New group name..." rows="1" maxlength="25"></textarea>
+
         <textarea class="input-field" type="text" id="description" placeholder="Add new description..." rows="1" maxlength="150"></textarea><br>
 
         <textarea class="input-field" type="text" id="groupMembers" placeholder="Add members..." rows="1" maxlength="25"></textarea>
