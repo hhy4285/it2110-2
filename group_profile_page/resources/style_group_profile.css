@@ -85,7 +85,6 @@
   font-family: 'Suez One', serif;
   display: inline-block;
   padding: 8px;
-  width: 45px;
   cursor: pointer;
   text-align: center;
   outline: none;
@@ -100,5 +99,4 @@
   color: #fff;
   background-color: #ffc919;
   box-shadow: 0 6px #bc930b;
-  width: 80px;
 }
