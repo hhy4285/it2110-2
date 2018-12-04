@@ -28,12 +28,13 @@
   </header>
 
   <body>
-    <div id="cotainer">
+    <div id="container">
     <div id="profile_block">
       <h1 id="groupName">Group 7</h1>
       <button id="joinRequest" type="submit">Join Request</button>
+      <button id="editBtn"><a href="group_profile_edit.php">Edit</a></button>
       <div class="blocks" id="abstract">
-        <h2 class="title2">Abstract:</h2><br>
+        <h2 class="title2">Description:</h2><br>
         "Group 7" is a project group in Websystem Develoment class. The objective of the project is to create a platform that can connect potential leaders and members for their projects within an established network.
       </div>
       <div class="border"></div>
@@ -54,9 +55,9 @@
       <div class="blocks" id="projectProgress">
         <h2 class="title2">Project Progress:</h2>
         <ul>
-          <li>1. Planning (Complete)</li>
-          <li>2. Front-end (In progress)</li>
-          <li>3. Back-end (In progress)</li>
+          <li>Planning (Complete)</li>
+          <li>Front-end (In progress)</li>
+          <li>Back-end (In progress)</li>
         </ul>
       </div>
       <div class="border"></div>
@@ -64,9 +65,9 @@
       <div class="blocks" id="recruitInfo">
         <h2 class="title2">We are looking for:</h2>
         <ul>
-          <li>1. One web developer</li>
-          <li>2. Visual design artist</li>
-          <li>3. Marketing specialist</li>
+          <li>One web developer</li>
+          <li>Visual design artist</li>
+          <li>Marketing specialist</li>
         </ul>
       </div>
 

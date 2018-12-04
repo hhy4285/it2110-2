@@ -6,9 +6,12 @@
   padding-left: 10%;
   padding-top: 2.5%;
 }
+#container {
+
+  min-height: calc(100vh - 26vh);
+}
 #profile_block {
   width: 50%;
-  height: 55%;
   margin-left: 25%;
   margin-top: 5%;
   margin-bottom: 4%;
@@ -33,6 +36,22 @@
   box-shadow: 0px 3px 0px #B17300;
   margin-right: 9%;
 }
+#editBtn {
+  float: right;
+  font-family: 'Signika', sans-serif;
+  font-size: 1em;
+  font-weight: bold; 
+  color: grey;
+  background-color: lightgreen;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 0px green;
+  margin-right: 3%;
+}
+#editBtn a {
+  text-decoration : none; color : grey;
+}
 #abstract {
   width: 80%;
   padding-bottom: 3%;
@@ -48,7 +67,6 @@
   display: inline-block;
 }
 #projectProgress {
-<<<<<<< HEAD
 }
 .input-field {
   vertical-align: bottom;
@@ -81,6 +99,4 @@
   color: #fff;
   background-color: #ffc919;
   box-shadow: 0 6px #bc930b;
-=======
->>>>>>> parent of 08484cd... edit page for group profile page
 }
