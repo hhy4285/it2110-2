@@ -39,6 +39,7 @@
       }
 
       $UserName = $_SESSION['username'];
+      echo("<script>var uname = '" . $UserName . "';</script>");
 
       // check if save button pressed  
       if (isset($_POST['save']) && $_POST['save'] == 'Save') {
@@ -164,7 +165,7 @@
                 </th>
                 <th>
                   <!-- button to exit out of edit mode and view the page normaly -->
-                  <button type="button" class="controleButton" id="viewButton" onclick="window.location = 'user_profile_view.php';">View</button>               
+                  <button type="button" class="controleButton" id="viewButton" onclick="window.location = 'user_profile_view.php?target='+uname;">View</button>               
                 </th>
               </tr>
             </table>
