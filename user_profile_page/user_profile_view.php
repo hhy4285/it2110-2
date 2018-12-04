@@ -1,9 +1,4 @@
-<?php
-    session_start();
-    if(isset($_SESSION['UserID'])){
-      $UserID = $_SESSION['UserID'];
-    }
-?>
+<?php include('../resources/header.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -106,20 +101,23 @@
                 $sql = "SELECT * FROM users WHERE UserID='".$UserID."' LIMIT 1";
                 $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 
-                echo "<table>";
+                //echo "<table>";
                 while($row = mysqli_fetch_assoc($result)){
                   $first_name = $row['FirstName'];
-                  $last_name = $row['Last_Name'];
+                  $last_name = $row['LastName'];
                   $email = $row['Email'];
-                  //$skill_1 = $row[''];
-                  //$skill_2 = $row[''];
-                  //$skill_3 = $row[''];
-                  //$skill_4 = $row[''];
-                  //$preferred_job = $row[''];
-                  //$biography = $row[''];
-                  echo "<tr><td>".$first_name." ".$last_name."</td><td>Job: ".$preferred_job."</td><td>Contact: ".$email."</td><td>Skills: ".$skill_1." ".$skill_2." ".$skill_3." ".$skill_4."</td><td>Biography: ".$biography."</td></tr>";   
+                  $skills = $row['Skills'];
+                  $preferred_job = $row['PreferredJob'];
+                  $biography = $row['Biography'];
+                  echo "<h3>".$first_name." ".$last_name."</h3>
+                        <ul style=''>
+                          <li>Job: ".$preferred_job."</li>
+                          <li>Contact: ".$email."</li>
+                          <li>Skills: ".$skills."</li>
+                          <li>Biography: ".$biography."</li>
+                        </ul>";   
                 }
-                echo "</table>";
+                //echo "</table>";
               ?>
               
             </div>

@@ -216,3 +216,8 @@ ul#all-groups {
   box-shadow: 0 5px #666;
 }
 
+/* -- View Profile Page CSS --------------- */
+
+#user-data-wrapper {
+	text-align: left;
+}

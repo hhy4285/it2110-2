@@ -157,7 +157,7 @@
                 <textarea class="input-field" type="text" id="firstname" placeholder="First Name" rows="1" maxlength="25"></textarea><br>
                 <textarea class="input-field" type="text" id="lastname" placeholder="Last Name" rows="1" maxlength="25"></textarea><br>
 
-                <textarea class="input-field" type="text" id="preferredjob" placeholder="Preferred Job" rows="1" maxlength="25"></textarea><br>
+                <textarea class="input-field" type="text" id="preferredjob" placeholder="Preferred Job" rows="1" maxlength="50"></textarea><br>
 
                 <!-- top skills input -->
                 <textarea class="input-field" type="text" id="skill-1" placeholder="Skill 1" rows="1" maxlength="25"></textarea>
