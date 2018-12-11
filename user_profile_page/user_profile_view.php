@@ -40,7 +40,7 @@
             </div><br>
 
             <!-- Button to Open Linkdin Link --> 
-            <button type="button" class="view-page-buttons" id="open-linkdin" onclick="window.open('https://www.linkedin.com/');">Linkdin</button>
+            <button type="button" class="view-page-buttons" id="open-linkdin" onclick="window.open('https://www.linkedin.com/');">Linkedin</button>
 
             <br><br>
 
