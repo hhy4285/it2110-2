@@ -1,7 +1,3 @@
-<?php
-include("resources/header.php");
-?>
-
 <!DOCTYPE html>
 <html>
   <head>

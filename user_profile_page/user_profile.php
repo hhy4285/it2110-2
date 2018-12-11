@@ -116,8 +116,8 @@
                 <br>
                 <br>
 
-                <input id="input-image" name="userImage" type="file" onchange="readURL(this);" />
-                <button style="visibility: hidden;" ><label id="choose-file-button" for="input-image" style="visibility: visible;">Choose a Picture</label></button>
+                <input id="input-image" name="userImage" type="file" onchange="readURL(this);">
+                <label id="choose-file-button" for="input-image">Choose a Picture</label>
                 <script type="text/javascript">
                   function readURL(input) {
                     if (input.files && input.files[0]) {
@@ -138,7 +138,7 @@
                 <br>
                 <br>
 
-                <input id="upload-file-button" type="submit" name="submit_image" value="Upload Image" />
+                <input id="upload-file-button" type="submit" name="submit_image" value="Upload Image">
               </form>
             </div>
 
@@ -186,7 +186,17 @@
               <tr>
                 <th>
                   <!-- button to delete user from database -->
-                  <button type="button" class="controleButton" id="deleteButton" onclick="alert('Are you sure you want to completely delete your account? All of your account data will be erased and unrecoverable.')">Delete</button>                  
+                  <script>
+                    function deleteAccount() {
+                      if (confirm('Are you sure you want to completely delete your account? All of your account data will be erased and unrecoverable.')) {
+                        $.post('user_profile.php', {delete: 1}, function() {
+                          location.href = "../index.php";
+                        });
+                      }
+                    }
+                  </script>
+
+                  <button type="button" class="controleButton" id="deleteButton" onclick="deleteAccount()">Delete</button>
                 </th>
                 <th>
                   <!-- button to exit out of edit mode and view the page normaly -->
@@ -203,7 +213,7 @@
                 // connect to database           
                 $dbname = 'websysproject';
                 $user = 'root';
-                $pass = '';             
+                $pass = '';
                 $conn = mysqli_connect("localhost", $user, $pass, $dbname);
 
                 // Check connection
@@ -266,8 +276,14 @@
 
                         </form> ';
                 }              
+                // if deteting account
+                if (isset($_POST['delete'])) {
+                  $sql = "DELETE FROM users WHERE username='".$UserName."';";
+                  $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                  // delete session
+                  
+                }
               ?>
-              
             </div>
 
           </th> 

@@ -48,66 +48,55 @@ h1 {
 
 /* hide default choose file button */
 #input-image {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+	display: none;
 }
 
-#choose-file-button {
-	font-family: 'Suez One', serif;
+/* image upload buttons */
+#image-upload-form input[type="submit"],
+#image-upload-form label {
+  font-family: 'Suez One', serif;
   display: inline-block;
   cursor: pointer; /* "hand" cursor */
-  padding: 8px;
+  padding: 8px 0;
   width: 118px;
-  margin-left: 4px;
   text-align: center;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 9px green;
+  font-size: 13px;
+  font-weight: 400;
 }
 
-#choose-file-button:focus,
-#choose-file-button:hover {
-  background-color: #3e8e41
-}
-
-#choose-file-button:active {
-  background-color: #3e8e41;
+#image-upload-form input[type="submit"]:active,
+#image-upload-form label:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-#upload-file-button {
-	font-family: 'Suez One', serif;
-  display: inline-block;
-  cursor: pointer; /* "hand" cursor */
-  padding: 8px;
-  width: 80%;
-  text-align: center;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
+/* submit image button */
+#image-upload-form input[type="submit"] {
   background-color: #0085cc;
   box-shadow: 0 9px #004266;
 }
 
-#upload-file-button:focus,
-#upload-file-button:hover {
-  background-color: #006399
+#image-upload-form input[type="submit"]:focus,
+#image-upload-form input[type="submit"]:hover {
+  background-color: #006399;
 }
 
-#upload-file-button:active {
-  background-color: #006399;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+/* choose image button */
+#image-upload-form label {
+  margin-left: 4px;
+  background-color: #4CAF50;
+  box-shadow: 0 9px green;
 }
+
+#image-upload-form label:focus,
+#image-upload-form label:hover {
+  background-color: #3e8e41;
+}
+
 
 /* --------------------------------- */
 ul#all-groups {
