@@ -5,7 +5,7 @@ try{
   $dbname = 'websysproject';
   $dbuser = 'root';
   $dbpass = '';
-  $dbid;
+  $dbid = null;
 
   // Connect to the database
   $con = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpass);
