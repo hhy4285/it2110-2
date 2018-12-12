@@ -46,7 +46,7 @@
 
             <!-- Button to Edit User Page if On Own Page --> 
             <?php
-            if($_GET['target'] == $_SESSION['username'])
+            if(isset($_SESSION['username'])&&$_GET['target'] == $_SESSION['username']){
             echo
               '<button type="button" class="view-page-buttons" id="edit-my-profile" onclick="openEdit();">Edit</button>
               <script type="text/javascript">
@@ -54,6 +54,7 @@
                   window.open("user_profile.php");
                 }
                 </script>';
+              }
               ?>
           </th>         
           <th style="vertical-align: top;">
