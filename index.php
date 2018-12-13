@@ -95,13 +95,13 @@ include("resources/header.php");
                     echo "</tr>";
                   }
                 } else {
-                  $stmt = $con->prepare("SELECT GroupName, ContactEmail FROM groups WHERE GroupName LIKE '%{$term}%' OR ContactEmail LIKE '%{$term}%' OR `Description` LIKE '%{$term}%' GROUP BY GroupName");
+                  $stmt = $con->prepare("SELECT GroupName, ContactEmail, GroupID FROM groups WHERE GroupName LIKE '%{$term}%' OR ContactEmail LIKE '%{$term}%' OR `Description` LIKE '%{$term}%' GROUP BY GroupName");
                   $stmt->execute();
                   while ($row = $stmt->fetch()) {
                     echo "<tr>";
                     echo "<td>" . $row['GroupName'] . "</td>";
                     echo "<td>" . $row['ContactEmail'] . "</td>";
-                    echo "<td><a href=\"group_profile_page/group_profile.php?target=" . $row['GroupName'] . "\">Link</a></td>";
+                    echo "<td><a href=\"group_profile_page/group_profile.php?target=" . $row['GroupID'] . "\">Link</a></td>";
                     echo "</tr>";
                   }
                 }
