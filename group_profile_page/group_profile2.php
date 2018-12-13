@@ -37,10 +37,16 @@ include("../resources/header.php");
           echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
 
-        $UserName = $_GET['target'];
-        //$UserName = $_SESSION['username'];
+        //$UserName = $_GET['target'];
+        $UserName = $_SESSION['username'];
+        $sql = "SELECT * FROM users WHERE username='".$UserName."' LIMIT 1";
+        $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 
-        $sql = "SELECT * FROM group_individual_relations WHERE username='".$UserName."' LIMIT 1";
+        while($row = mysqli_fetch_assoc($result)){
+          $uID = $row["UserID"];
+        }
+
+        $sql = "SELECT * FROM group_individual_relations WHERE userID='".$uID."' LIMIT 1";
         $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 
         while($row = mysqli_fetch_assoc($result)){
@@ -51,11 +57,11 @@ include("../resources/header.php");
         $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 
         while($row = mysqli_fetch_assoc($result)){
-          $groupName = $row["groupName"];
-          $description = $row["description"];
-          $member1 = $row["member"];
-          $progress1 = $row["progress"];
-          $recruitInfo3 = $row["recruitInfo"];
+          $groupName = $row["GroupName"];
+          $description = $row["Description"];
+          $member = $row["member"];
+          $progress = $row["progress"];
+          $recruitInfo = $row["recruitInfo"];
           //$member1 = $row["member1"];
           //$member2 = $row["member2"];
           //$member3 = $row["member3"];
@@ -67,15 +73,6 @@ include("../resources/header.php");
           //$recruitInfo2 = $row["recruitInfo2"];
           //$recruitInfo3 = $row["recruitInfo3"];
           $groupEmail = $row["ContactEmail"];
-        }
-
-
-        $groupID = $_GET['target'];
-        $sql = $con -> prepare("SELECT * FROM groups WHERE GroupID='".$groupID."' LIMIT 1");
-        $sql -> execute();
-        while ($row = $sql -> fetch(PDO::FETCH_ASSOC)){
-          
-          //echo $row[""];
         }
       }catch (Exception $e) {
         echo "Error: " . $e->getMessage();
@@ -100,10 +97,10 @@ include("../resources/header.php");
                 <div class='blocks' id='group_members'>
                   <h2 class='title2'>Group Members:</h2>
                   <ul>
-                    <li><a href='#'> " . $member1 . " </a></li>
-                    <li><a href='#'> " . $member2 . " </a></li>
-                    <li><a href='#'> " . $member3 . " </a></li>
-                    <li><a href='#'> " . $member4 . " </a></li>
+                    <li><a href='#'> " . $member . " </a></li>
+                    <li><a href='#'> " . $member . " </a></li>
+                    <li><a href='#'> " . $member . " </a></li>
+                    <li><a href='#'> " . $member . " </a></li>
                   </ul>
                 </div>
                 <div class='border'></div>
@@ -111,9 +108,9 @@ include("../resources/header.php");
                 <div class='blocks' id='projectProgress'>
                   <h2 class='title2'>Project Progress:</h2>
                   <ul>
-                    <li>" . $progress1 . "</li>
-                    <li>" . $progress2 . "</li>
-                    <li>" . $progress3 . "</li>
+                    <li>" . $progress . "</li>
+                    <li>" . $progress . "</li>
+                    <li>" . $progress . "</li>
                   </ul>
                 </div>
                 <div class='border'></div>
@@ -121,9 +118,9 @@ include("../resources/header.php");
                 <div class='blocks' id='recruitInfo'>
                   <h2 class='title2'>We are looking for:</h2>
                   <ul>
-                    <li>" . $recruitInfo1 . "</li>
-                    <li>" . $recruitInfo2 . "</li>
-                    <li>" . $recruitInfo3 . "</li>
+                    <li>" . $recruitInfo . "</li>
+                    <li>" . $recruitInfo . "</li>
+                    <li>" . $recruitInfo . "</li>
                   </ul>
                 </div>";
 
