@@ -94,9 +94,10 @@
 }
 #submitBtn {
   margin-top: 3%;
-  margin-left: 59.5%;
+  margin-left: 56.5%;
   margin-bottom: 10%;
   color: #fff;
   background-color: #ffc919;
   box-shadow: 0 6px #bc930b;
+  font-size: 1em;
 }

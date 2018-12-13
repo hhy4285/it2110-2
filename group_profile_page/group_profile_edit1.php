@@ -24,33 +24,67 @@ include("../resources/header.php");
   </header>
 
   <body>
+    <?php
+    try {
+    // connect to database
+      $dbname = 'websysproject';
+      $user = 'root';
+      $pass = '';
+      $conn = mysqli_connect("localhost", $user, $pass, $dbname);
+
+      // Check connection
+      if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+      }
+
+      $UserName = $_SESSION['username'];
+
+      $sql = "SELECT * FROM users WHERE username='".$UserName."' LIMIT 1";
+      $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+
+      while($row = mysqli_fetch_assoc($result)){
+        $uID = $row["UserID"];
+      }
+
+      $sql = "SELECT * FROM group_individual_relations WHERE userID='".$uID."' LIMIT 1";
+      $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+
+      while($row = mysqli_fetch_assoc($result)){
+        $groupID = $row["groupID"];
+      }
+
+      $sql = "SELECT * FROM groups WHERE GroupID='".$groupID."' LIMIT 1";
+      $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+
+      while($row = mysqli_fetch_assoc($result)){
+        $groupName = $row["GroupName"];
+      }
+
+      } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+      }
+
+
+      if(isset($_POST['submitbtn']) && $_POST['submitbtn'] == 'Submit'){
+        $name = $_POST["newName"];
+        $description = $_POST["newDescription"];
+        $members = $_POST["addedMembers"];
+        $progress = $_POST["newProgress"];
+        $recruit = $_POST["newRecruit"];
+        
+        $sql = "UPDATE groups SET GroupName='$name', Description='$description', member='$members', progress='$progress', recruitInfo='$recruit' WHERE GroupID='$groupID' LIMIT 1";
+
+        mysqli_query($conn, $sql);
+
+        header("Location: group_profile2.php");
+        exit;
+        }
+      
+    ?>
     <div id="cotainer">
     <div id="profile_block">
-      <h1 id="groupName">TaskFuse</h1>
+      <h1 id="groupName"><?php echo $groupName; ?></h1>
       <form id="user-data-form" method="post" action="group_profile_edit1.php">
-        <?php
-          if(isset($_POST['submitbtn'])){
-            $name = $_POST["newName"];
-            $description = $_POST["newDescription"];
-            $members = $_POST["addedMembers"];
-            $progress = $_POST["newProgress"];
-            $recruit = $_POST["newRecruit"];
-            
-            $sign_stmt = $con->prepare('SELECT GroupID FROM groups WHERE GroupID = :GroupID');
-            $sign_stmt->execute(array(':GroupID' => $_POST['Nuser']));
-            if($name == $sign_stmt->fetch())
-            {
-              echo "<p style=\"text-align: center;\">Sorry, the group name is already taken, Please try again.</p>";
-              //echo"<script>alert('The username is already taken')</script>";
-            } else {
-            $sign_stmt = $con->prepare("INSERT INTO `groups` (GroupID, GroupName, Description, progress, recruitInfo) VALUES (:groupName, :memberName, :description, :progress, :recruit)");
-            $sign_stmt->execute(array(':groupName' => $name, ':memberName' => $members, ':description' => $description,  ':progress' => $progress, ':recruit' => $recruit));
-
-            header("Location: project.php");
-            exit;
-            }
-          }
-        ?>
 
         <input class="input-field" type="text" id="groupName2" name="newName" placeholder="New group name..." rows="1" maxlength="25"></input>
 
@@ -59,28 +93,23 @@ include("../resources/header.php");
 
 
 
-        <input class="input-field" type="text" id="groupMembers" name="addedMembers" placeholder="Add members..." rows="1" maxlength="25"></input>
-        <label for="user-data-form" type="button" class="addButton" id="addMembers" value="Save" name="save" onclick="">ADD</label><br>
+        <input class="input-field" type="text" id="groupMembers" name="addedMembers" placeholder="Add members separated by spaces..." rows="1" maxlength="25"></input>
+        <!--<label for="user-data-form" type="button" class="addButton" id="addMembers" value="Save" name="save" onclick="">ADD</label><br>-->
 
 
 
 
-        <input class="input-field" type="text" id="progress" name="newProgress" placeholder="Add project progress..." rows="1" maxlength="50"></input>
-        <label for="user-data-form" type="button" class="addButton" id="addProgress" value="Save" name="save" onclick="">ADD</label><br>
+        <input class="input-field" type="text" id="progress" name="newProgress" placeholder="Add project progresses  separated by spaces..." rows="1" maxlength="50"></input>
+        <!--<label for="user-data-form" type="button" class="addButton" id="addProgress" value="Save" name="save" onclick="">ADD</label><br>-->
 
 
 
 
-        <input class="input-field" type="text" id="recruitInfo" name="newRecruit" placeholder="Recruting..." rows="1" maxlength="25"></input>
+        <input class="input-field" type="text" id="recruitInfo" name="newRecruit" placeholder="Add recruit info separated by spaces..." rows="1" maxlength="25"></input>
 
-        <label for="user-data-form" type="button" class="addButton" id="saveRecruit" value="Save" name="save" onclick="">ADD</label><br>
+        <!--<label for="user-data-form" type="button" class="addButton" id="saveRecruit" value="Save" name="save" onclick="">ADD</label><br>-->
 
-
-
-
-        <label for="user-data-form" type="button" class="addButton" id="clearBtn" value="Clear" name="savebtn" onclick="clearFields();">Clear All</label>
-
-        <label for="user-data-form" type="button" class="addButton" id="submitBtn" value="Submit" name="submitbtn" onclick="submitForms();">Submit</label>
+        <input type="submit" class="addButton" id="submitBtn" name="submitbtn" value="Submit">
 
       </form>
 
@@ -88,13 +117,4 @@ include("../resources/header.php");
     </div>
     <?php include('../resources/footer.php'); ?>
   </body>
-  <script type="text/javascript">
-    function clearFields() {
-      document.getElementById("groupName2").value = "";
-      document.getElementById("description").value = "";
-      document.getElementById("progress").value = "";
-      document.getElementById("recruitInfo").value = "";
-      document.getElementById("groupMembers").value = "";
-    };
-  </script>
 </html>

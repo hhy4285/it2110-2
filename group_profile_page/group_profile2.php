@@ -85,7 +85,7 @@ include("../resources/header.php");
                 <form action='group_profile2.php' method='post'>
                   <input type='submit' id='joinRequest' value='JoinRequest'/>
                 </form>
-                <button id='editBtn'><a href='group_profile_edit.php'>Edit</a></button>
+                <button id='editBtn'><a href='group_profile_edit1.php'>Edit</a></button>
                 <div class='blocks' id='abstract'>
                   <h2 class='title2'>Description:</h2><br>
                   " . $description . "
@@ -95,32 +95,37 @@ include("../resources/header.php");
 
                 <div class='blocks' id='group_members'>
                   <h2 class='title2'>Group Members:</h2>
-                  <ul>
-                    <li><a href='#'> " . $member . " </a></li>
-                    <li><a href='#'> " . $member . " </a></li>
-                    <li><a href='#'> " . $member . " </a></li>
-                    <li><a href='#'> " . $member . " </a></li>
-                  </ul>
+                  <ul>";
+                    $members = explode(" ", $member);
+                    foreach($members as $value) {
+                        echo "<li><a href='#'> " . $value . " </a></li>";
+                    }
+
+                  echo "</ul>
                 </div>
                 <div class='border'></div>
 
                 <div class='blocks' id='projectProgress'>
                   <h2 class='title2'>Project Progress:</h2>
-                  <ul>
-                    <li>" . $progress . "</li>
-                    <li>" . $progress . "</li>
-                    <li>" . $progress . "</li>
-                  </ul>
+                  <ul>";
+                    $progresses = explode(" ", $progress);
+                    foreach($progresses as $value) {
+                        echo "<li>" . $value . "</li>";
+                    }
+
+                  echo "</ul>
                 </div>
                 <div class='border'></div>
 
                 <div class='blocks' id='recruitInfo'>
                   <h2 class='title2'>We are looking for:</h2>
-                  <ul>
-                    <li>" . $recruitInfo . "</li>
-                    <li>" . $recruitInfo . "</li>
-                    <li>" . $recruitInfo . "</li>
-                  </ul>
+                  <ul>";
+                    $recruitInfoS = explode(" ", $recruitInfo);
+                    foreach($recruitInfoS as $value) {
+                        echo "<li>" . $value . "</li>";
+                    }
+
+                  echo "</ul>
                 </div>";
 
 
