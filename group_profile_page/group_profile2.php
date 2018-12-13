@@ -82,9 +82,8 @@ include("../resources/header.php");
     <div id="profile_block">
       <?php 
         echo "<h1 id='groupName'>" . $groupName . "</h1>
-                <form action='group_profile1.php' method='post'>
-                  <input type='submit' value='JoinRequest'/>
-                  <input type='hidden' name='button_pressed' value='1'/>
+                <form action='group_profile2.php' method='post'>
+                  <input type='submit' id='joinRequest' value='JoinRequest'/>
                 </form>
                 <button id='editBtn'><a href='group_profile_edit.php'>Edit</a></button>
                 <div class='blocks' id='abstract'>
