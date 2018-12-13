@@ -13,10 +13,8 @@ try{
     $owngroup = $con->prepare("SELECT groupID FROM group_individual_relations WHERE userID = :user");
     $owngroup->execute([":user" => $_SESSION['UserID']]);
     $dbid = $owngroup->fetch()['groupID'];
-  } else {
-  }
-}
-catch (Exception $e) {
+  } else {}
+} catch (Exception $e) {
   echo "Error: " . $e->getMessage();
 }
 ?>

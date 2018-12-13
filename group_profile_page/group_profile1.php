@@ -26,8 +26,8 @@ include("../resources/header.php");
   <body>
     <?php
       try {
-        $groupName = $_GET['target'];
-        $sql = $con -> prepare("SELECT * FROM groups WHERE groupName='".$groupName."' LIMIT 1");
+        $groupID = $_GET['target'];
+        $sql = $con -> prepare("SELECT * FROM groups WHERE GroupID='".$groupID."' LIMIT 1");
         $sql -> execute();
         while ($row = $sql -> fetch(PDO::FETCH_ASSOC)){
           $groupName = $row["groupName"];
@@ -53,9 +53,9 @@ include("../resources/header.php");
     <div id="profile_block">
       <?php 
         echo "<h1 id='groupName'>" . $groupName . "</h1>
-                <form action="" method="post">
-                  <input type="submit" value="JoinRequest"/>
-                  <input type="hidden" name="button_pressed" value="1"/>
+                <form action='group_profile1.php' method='post'>
+                  <input type='submit' value='JoinRequest'/>
+                  <input type='hidden' name='button_pressed' value='1'/>
                 </form>
                 <button id='editBtn'><a href='group_profile_edit.php'>Edit</a></button>
                 <div class='blocks' id='abstract'>
@@ -63,9 +63,8 @@ include("../resources/header.php");
                   " . $description . "
                 </div>
                 <div class='border'></div>
-                <div id="">
-                  
-                </div>
+                
+                
                 <div class='blocks' id='group_members'>
                   <h2 class='title2'>Group Members:</h2>
                   <ul>
