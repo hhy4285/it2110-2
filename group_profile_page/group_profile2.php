@@ -26,23 +26,55 @@ include("../resources/header.php");
   <body>
     <?php
       try {
+        // connect to database           
+        $dbname = 'websysproject';
+        $user = 'root';
+        $pass = '';             
+        $conn = mysqli_connect("localhost", $user, $pass, $dbname);
+
+        // Check connection
+        if (mysqli_connect_errno()) {
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+
+        $UserName = $_GET['target'];
+        //$UserName = $_SESSION['username'];
+
+        $sql = "SELECT * FROM group_individual_relations WHERE username='".$UserName."' LIMIT 1";
+        $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+
+        while($row = mysqli_fetch_assoc($result)){
+          $groupID = $row["groupID"];
+        }
+
+        $sql = "SELECT * FROM groups WHERE GroupID='".$groupID."' LIMIT 1";
+        $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+
+        while($row = mysqli_fetch_assoc($result)){
+          $groupName = $row["groupName"];
+          $description = $row["description"];
+          $member1 = $row["member"];
+          $progress1 = $row["progress"];
+          $recruitInfo3 = $row["recruitInfo"];
+          //$member1 = $row["member1"];
+          //$member2 = $row["member2"];
+          //$member3 = $row["member3"];
+          //$member4 = $row["member4"];
+          //$progress1 = $row["progress1"];
+          //$progress2 = $row["progress2"];
+          //$progress3 = $row["progress3"];
+          //$recruitInfo1 = $row["recruitInfo1"];
+          //$recruitInfo2 = $row["recruitInfo2"];
+          //$recruitInfo3 = $row["recruitInfo3"];
+          $groupEmail = $row["ContactEmail"];
+        }
+
+
         $groupID = $_GET['target'];
         $sql = $con -> prepare("SELECT * FROM groups WHERE GroupID='".$groupID."' LIMIT 1");
         $sql -> execute();
         while ($row = $sql -> fetch(PDO::FETCH_ASSOC)){
-          $groupName = $row["groupName"];
-          $description = $row["description"];
-          $member1 = $row["member1"];
-          $member2 = $row["member2"];
-          $member3 = $row["member3"];
-          $member4 = $row["member4"];
-          $progress1 = $row["progress1"];
-          $progress2 = $row["progress2"];
-          $progress3 = $row["progress3"];
-          $recruitInfo1 = $row["recruitInfo1"];
-          $recruitInfo2 = $row["recruitInfo2"];
-          $recruitInfo3 = $row["recruitInfo3"];
-          $groupEmail = $row["email"];
+          
           //echo $row[""];
         }
       }catch (Exception $e) {
