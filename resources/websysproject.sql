@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 12, 2018 at 06:12 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Host: localhost
+-- Generation Time: Dec 13, 2018 at 07:32 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,25 +30,23 @@ USE `websysproject`;
 -- Table structure for table `groups`
 --
 
-DROP TABLE IF EXISTS `groups`;
 CREATE TABLE `groups` (
   `GroupID` int(10) NOT NULL,
   `GroupName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `FounderID` int(10) NOT NULL,
   `Description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `ContactEmail` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `Skill1` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Skill2` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Skill3` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Skill4` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+  `progress` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `recruitInfo` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `member` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `groups`
 --
 
-INSERT INTO `groups` (`GroupID`, `GroupName`, `FounderID`, `Description`, `ContactEmail`, `Skill1`, `Skill2`, `Skill3`, `Skill4`) VALUES
-(1, 'Sample Group', 1, 'This is a sample group for the purpose of testing', '', 'Painting', NULL, NULL, NULL);
+INSERT INTO `groups` (`GroupID`, `GroupName`, `FounderID`, `Description`, `ContactEmail`, `progress`, `recruitInfo`, `member`) VALUES
+(1, 'Sample Group', 1, 'This is a sample group for the purpose of testing', 'yi998hh@gmail.com', 'finished', 'none', 'HongYi, Andy, Nate, Thomas');
 
 -- --------------------------------------------------------
 
@@ -56,7 +54,6 @@ INSERT INTO `groups` (`GroupID`, `GroupName`, `FounderID`, `Description`, `Conta
 -- Table structure for table `group_individual_relations`
 --
 
-DROP TABLE IF EXISTS `group_individual_relations`;
 CREATE TABLE `group_individual_relations` (
   `relationID` int(10) NOT NULL,
   `userID` int(10) NOT NULL,
@@ -76,7 +73,6 @@ INSERT INTO `group_individual_relations` (`relationID`, `userID`, `groupID`) VAL
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
